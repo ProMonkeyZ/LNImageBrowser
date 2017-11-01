@@ -1,0 +1,23 @@
+//
+//  PrefixHeader.pch
+//  LNImageBrowser
+//
+//  Created by 张立宁 on 2017/10/31.
+//  Copyright © 2017年 ZLN. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define MAS_SHORTHAND
+
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
+
+#import <Masonry/Masonry.h>
+
+#import "LNColor.h"
+
+#endif /* PrefixHeader_pch */

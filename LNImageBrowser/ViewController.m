@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ImagesViewController.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    ImagesViewController *images = [ImagesViewController new];
+    
+    UINavigationController *rootNav = [[UINavigationController alloc] initWithRootViewController:images];
+    rootNav.navigationBar.hidden = YES;
+    [self presentViewController:rootNav animated:YES completion:nil];
 }
 
 

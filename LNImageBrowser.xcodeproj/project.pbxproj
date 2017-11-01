@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		139EEAA30F19EDEC747C8159 /* libPods-LNImageBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B7E9F2EB76E53EA4164582 /* libPods-LNImageBrowser.a */; };
 		4C94ECEE1FA81A6200FBD168 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ECED1FA81A6200FBD168 /* AppDelegate.m */; };
 		4C94ECF11FA81A6200FBD168 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ECF01FA81A6200FBD168 /* ViewController.m */; };
 		4C94ECF41FA81A6200FBD168 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C94ECF21FA81A6200FBD168 /* Main.storyboard */; };
@@ -14,6 +15,22 @@
 		4C94ECF91FA81A6200FBD168 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C94ECF71FA81A6200FBD168 /* LaunchScreen.storyboard */; };
 		4C94ECFC1FA81A6200FBD168 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ECFB1FA81A6200FBD168 /* main.m */; };
 		4C94ED061FA81A6200FBD168 /* LNImageBrowserUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ED051FA81A6200FBD168 /* LNImageBrowserUITests.m */; };
+		4C94ED131FA8244100FBD168 /* ImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ED121FA8244100FBD168 /* ImagesViewController.m */; };
+		4C94ED1C1FA8255900FBD168 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ED191FA8253B00FBD168 /* BaseViewController.m */; };
+		4C94ED1D1FA8255900FBD168 /* NavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ED1B1FA8253B00FBD168 /* NavigationBarController.m */; };
+		4C94ED3D1FA825D900FBD168 /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ED2F1FA8259300FBD168 /* RACViewController.m */; };
+		4C94ED3E1FA827A000FBD168 /* NavigatonBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ED161FA8251300FBD168 /* NavigatonBarView.m */; };
+		4CCD02221FA84C2E00A95C2A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD021A1FA84C2200A95C2A /* 1.jpg */; };
+		4CCD02231FA84C2E00A95C2A /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD021B1FA84C2200A95C2A /* 2.jpg */; };
+		4CCD02241FA84C2E00A95C2A /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD021C1FA84C2200A95C2A /* 3.jpg */; };
+		4CCD02251FA84C2E00A95C2A /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD021D1FA84C2200A95C2A /* 4.jpg */; };
+		4CCD02261FA84C2E00A95C2A /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD021E1FA84C2200A95C2A /* 5.jpg */; };
+		4CCD02271FA84C2E00A95C2A /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD021F1FA84C2200A95C2A /* 6.jpg */; };
+		4CCD02281FA84C2E00A95C2A /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD02201FA84C2200A95C2A /* 7.jpg */; };
+		4CCD02291FA84C2E00A95C2A /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD02211FA84C2200A95C2A /* 8.jpg */; };
+		4CCD022D1FA84DD600A95C2A /* LNImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD022C1FA84DD600A95C2A /* LNImageCollectionViewCell.m */; };
+		4CCD02341FA8560E00A95C2A /* LNImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD02331FA8560E00A95C2A /* LNImageBrowser.m */; };
+		85AC3EE91C2CD9DE24019856 /* libPods-LNImageBrowserUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC6F758A118DAFED640F485 /* libPods-LNImageBrowserUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11B7E9F2EB76E53EA4164582 /* libPods-LNImageBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNImageBrowser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DC6F758A118DAFED640F485 /* libPods-LNImageBrowserUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNImageBrowserUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C94ECE91FA81A6200FBD168 /* LNImageBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNImageBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C94ECEC1FA81A6200FBD168 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4C94ECED1FA81A6200FBD168 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -40,6 +59,34 @@
 		4C94ED011FA81A6200FBD168 /* LNImageBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LNImageBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C94ED051FA81A6200FBD168 /* LNImageBrowserUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNImageBrowserUITests.m; sourceTree = "<group>"; };
 		4C94ED071FA81A6200FBD168 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C94ED111FA8244100FBD168 /* ImagesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagesViewController.h; sourceTree = "<group>"; };
+		4C94ED121FA8244100FBD168 /* ImagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagesViewController.m; sourceTree = "<group>"; };
+		4C94ED151FA8251300FBD168 /* NavigatonBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigatonBarView.h; sourceTree = "<group>"; };
+		4C94ED161FA8251300FBD168 /* NavigatonBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigatonBarView.m; sourceTree = "<group>"; };
+		4C94ED181FA8253B00FBD168 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		4C94ED191FA8253B00FBD168 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		4C94ED1A1FA8253B00FBD168 /* NavigationBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationBarController.h; sourceTree = "<group>"; };
+		4C94ED1B1FA8253B00FBD168 /* NavigationBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationBarController.m; sourceTree = "<group>"; };
+		4C94ED2E1FA8259300FBD168 /* RACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewController.h; sourceTree = "<group>"; };
+		4C94ED2F1FA8259300FBD168 /* RACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewController.m; sourceTree = "<group>"; };
+		4C94ED3F1FA82CA600FBD168 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		4CCD021A1FA84C2200A95C2A /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		4CCD021B1FA84C2200A95C2A /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		4CCD021C1FA84C2200A95C2A /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		4CCD021D1FA84C2200A95C2A /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		4CCD021E1FA84C2200A95C2A /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		4CCD021F1FA84C2200A95C2A /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		4CCD02201FA84C2200A95C2A /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
+		4CCD02211FA84C2200A95C2A /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
+		4CCD022A1FA84D8E00A95C2A /* LNColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNColor.h; sourceTree = "<group>"; };
+		4CCD022B1FA84DD600A95C2A /* LNImageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNImageCollectionViewCell.h; sourceTree = "<group>"; };
+		4CCD022C1FA84DD600A95C2A /* LNImageCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNImageCollectionViewCell.m; sourceTree = "<group>"; };
+		4CCD02321FA8560E00A95C2A /* LNImageBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNImageBrowser.h; sourceTree = "<group>"; };
+		4CCD02331FA8560E00A95C2A /* LNImageBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNImageBrowser.m; sourceTree = "<group>"; };
+		7887EFC9D00CED9550962222 /* Pods-LNImageBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNImageBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LNImageBrowser/Pods-LNImageBrowser.debug.xcconfig"; sourceTree = "<group>"; };
+		93E34E1699EA9F48CA6FFF50 /* Pods-LNImageBrowserUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNImageBrowserUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LNImageBrowserUITests/Pods-LNImageBrowserUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AFBD4E01F0A8B5D27F7CB070 /* Pods-LNImageBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNImageBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-LNImageBrowser/Pods-LNImageBrowser.release.xcconfig"; sourceTree = "<group>"; };
+		C530145E7EB49D8C65EA95D7 /* Pods-LNImageBrowserUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNImageBrowserUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LNImageBrowserUITests/Pods-LNImageBrowserUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139EEAA30F19EDEC747C8159 /* libPods-LNImageBrowser.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85AC3EE91C2CD9DE24019856 /* libPods-LNImageBrowserUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +115,8 @@
 				4C94ECEB1FA81A6200FBD168 /* LNImageBrowser */,
 				4C94ED041FA81A6200FBD168 /* LNImageBrowserUITests */,
 				4C94ECEA1FA81A6200FBD168 /* Products */,
+				D1580ED2C923F5C7D5C21B8F /* Pods */,
+				5146BA0518D8D6BF3D8532D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,10 +136,18 @@
 				4C94ECED1FA81A6200FBD168 /* AppDelegate.m */,
 				4C94ECEF1FA81A6200FBD168 /* ViewController.h */,
 				4C94ECF01FA81A6200FBD168 /* ViewController.m */,
+				4CCD02191FA84C2200A95C2A /* 图片 */,
+				4C94ED1E1FA8259200FBD168 /* BaseWithRAC */,
+				4C94ED171FA8253B00FBD168 /* ViewController */,
+				4C94ED141FA8251300FBD168 /* NavigatonBarView */,
+				4C94ED101FA8241A00FBD168 /* TestViewController */,
+				4CCD022E1FA8559000A95C2A /* ImgeBrowser */,
 				4C94ECF21FA81A6200FBD168 /* Main.storyboard */,
 				4C94ECF51FA81A6200FBD168 /* Assets.xcassets */,
 				4C94ECF71FA81A6200FBD168 /* LaunchScreen.storyboard */,
 				4C94ECFA1FA81A6200FBD168 /* Info.plist */,
+				4C94ED3F1FA82CA600FBD168 /* PrefixHeader.pch */,
+				4CCD022A1FA84D8E00A95C2A /* LNColor.h */,
 				4C94ECFB1FA81A6200FBD168 /* main.m */,
 			);
 			path = LNImageBrowser;
@@ -103,6 +162,98 @@
 			path = LNImageBrowserUITests;
 			sourceTree = "<group>";
 		};
+		4C94ED101FA8241A00FBD168 /* TestViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4C94ED111FA8244100FBD168 /* ImagesViewController.h */,
+				4C94ED121FA8244100FBD168 /* ImagesViewController.m */,
+				4CCD022B1FA84DD600A95C2A /* LNImageCollectionViewCell.h */,
+				4CCD022C1FA84DD600A95C2A /* LNImageCollectionViewCell.m */,
+			);
+			path = TestViewController;
+			sourceTree = "<group>";
+		};
+		4C94ED141FA8251300FBD168 /* NavigatonBarView */ = {
+			isa = PBXGroup;
+			children = (
+				4C94ED151FA8251300FBD168 /* NavigatonBarView.h */,
+				4C94ED161FA8251300FBD168 /* NavigatonBarView.m */,
+			);
+			path = NavigatonBarView;
+			sourceTree = "<group>";
+		};
+		4C94ED171FA8253B00FBD168 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4C94ED181FA8253B00FBD168 /* BaseViewController.h */,
+				4C94ED191FA8253B00FBD168 /* BaseViewController.m */,
+				4C94ED1A1FA8253B00FBD168 /* NavigationBarController.h */,
+				4C94ED1B1FA8253B00FBD168 /* NavigationBarController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4C94ED1E1FA8259200FBD168 /* BaseWithRAC */ = {
+			isa = PBXGroup;
+			children = (
+				4C94ED1F1FA8259200FBD168 /* Classes */,
+			);
+			path = BaseWithRAC;
+			sourceTree = "<group>";
+		};
+		4C94ED1F1FA8259200FBD168 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4C94ED2E1FA8259300FBD168 /* RACViewController.h */,
+				4C94ED2F1FA8259300FBD168 /* RACViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4CCD02191FA84C2200A95C2A /* 图片 */ = {
+			isa = PBXGroup;
+			children = (
+				4CCD021A1FA84C2200A95C2A /* 1.jpg */,
+				4CCD021B1FA84C2200A95C2A /* 2.jpg */,
+				4CCD021C1FA84C2200A95C2A /* 3.jpg */,
+				4CCD021D1FA84C2200A95C2A /* 4.jpg */,
+				4CCD021E1FA84C2200A95C2A /* 5.jpg */,
+				4CCD021F1FA84C2200A95C2A /* 6.jpg */,
+				4CCD02201FA84C2200A95C2A /* 7.jpg */,
+				4CCD02211FA84C2200A95C2A /* 8.jpg */,
+			);
+			path = "图片";
+			sourceTree = "<group>";
+		};
+		4CCD022E1FA8559000A95C2A /* ImgeBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				4CCD02321FA8560E00A95C2A /* LNImageBrowser.h */,
+				4CCD02331FA8560E00A95C2A /* LNImageBrowser.m */,
+			);
+			path = ImgeBrowser;
+			sourceTree = "<group>";
+		};
+		5146BA0518D8D6BF3D8532D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11B7E9F2EB76E53EA4164582 /* libPods-LNImageBrowser.a */,
+				3DC6F758A118DAFED640F485 /* libPods-LNImageBrowserUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D1580ED2C923F5C7D5C21B8F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7887EFC9D00CED9550962222 /* Pods-LNImageBrowser.debug.xcconfig */,
+				AFBD4E01F0A8B5D27F7CB070 /* Pods-LNImageBrowser.release.xcconfig */,
+				C530145E7EB49D8C65EA95D7 /* Pods-LNImageBrowserUITests.debug.xcconfig */,
+				93E34E1699EA9F48CA6FFF50 /* Pods-LNImageBrowserUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,9 +261,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C94ED0A1FA81A6200FBD168 /* Build configuration list for PBXNativeTarget "LNImageBrowser" */;
 			buildPhases = (
+				C3694FA3AF6961D31C49F87A /* [CP] Check Pods Manifest.lock */,
 				4C94ECE51FA81A6200FBD168 /* Sources */,
 				4C94ECE61FA81A6200FBD168 /* Frameworks */,
 				4C94ECE71FA81A6200FBD168 /* Resources */,
+				E7C45B3BC5975DDFE9DF19FD /* [CP] Embed Pods Frameworks */,
+				8F33D25BF7CEFE125D25AC94 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -127,9 +281,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C94ED0D1FA81A6200FBD168 /* Build configuration list for PBXNativeTarget "LNImageBrowserUITests" */;
 			buildPhases = (
+				4C12A21283A29BDBF72B39A0 /* [CP] Check Pods Manifest.lock */,
 				4C94ECFD1FA81A6200FBD168 /* Sources */,
 				4C94ECFE1FA81A6200FBD168 /* Frameworks */,
 				4C94ECFF1FA81A6200FBD168 /* Resources */,
+				32061C9F1F64EB37E4F6513D /* [CP] Embed Pods Frameworks */,
+				92C9A8C3BE752B4CEA7972CC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -147,6 +304,7 @@
 		4C94ECE11FA81A6100FBD168 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LN;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = ZLN;
 				TargetAttributes = {
@@ -186,7 +344,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C94ECF91FA81A6200FBD168 /* LaunchScreen.storyboard in Resources */,
+				4CCD02291FA84C2E00A95C2A /* 8.jpg in Resources */,
 				4C94ECF61FA81A6200FBD168 /* Assets.xcassets in Resources */,
+				4CCD02251FA84C2E00A95C2A /* 4.jpg in Resources */,
+				4CCD02261FA84C2E00A95C2A /* 5.jpg in Resources */,
+				4CCD02271FA84C2E00A95C2A /* 6.jpg in Resources */,
+				4CCD02221FA84C2E00A95C2A /* 1.jpg in Resources */,
+				4CCD02281FA84C2E00A95C2A /* 7.jpg in Resources */,
+				4CCD02241FA84C2E00A95C2A /* 3.jpg in Resources */,
+				4CCD02231FA84C2E00A95C2A /* 2.jpg in Resources */,
 				4C94ECF41FA81A6200FBD168 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,13 +366,113 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		32061C9F1F64EB37E4F6513D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNImageBrowserUITests/Pods-LNImageBrowserUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C12A21283A29BDBF72B39A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8F33D25BF7CEFE125D25AC94 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNImageBrowser/Pods-LNImageBrowser-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92C9A8C3BE752B4CEA7972CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNImageBrowserUITests/Pods-LNImageBrowserUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3694FA3AF6961D31C49F87A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E7C45B3BC5975DDFE9DF19FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNImageBrowser/Pods-LNImageBrowser-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4C94ECE51FA81A6200FBD168 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4C94ECF11FA81A6200FBD168 /* ViewController.m in Sources */,
+				4C94ED1D1FA8255900FBD168 /* NavigationBarController.m in Sources */,
+				4C94ED1C1FA8255900FBD168 /* BaseViewController.m in Sources */,
+				4C94ED3D1FA825D900FBD168 /* RACViewController.m in Sources */,
+				4C94ED3E1FA827A000FBD168 /* NavigatonBarView.m in Sources */,
+				4CCD022D1FA84DD600A95C2A /* LNImageCollectionViewCell.m in Sources */,
+				4CCD02341FA8560E00A95C2A /* LNImageBrowser.m in Sources */,
 				4C94ECFC1FA81A6200FBD168 /* main.m in Sources */,
+				4C94ED131FA8244100FBD168 /* ImagesViewController.m in Sources */,
 				4C94ECEE1FA81A6200FBD168 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,7 +563,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -346,7 +612,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -355,34 +621,41 @@
 		};
 		4C94ED0B1FA81A6200FBD168 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7887EFC9D00CED9550962222 /* Pods-LNImageBrowser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QQQKQQXNQ;
+				GCC_PREFIX_HEADER = "/Users/zln/张立宁项目/LNImageBrowser/LNImageBrowser/PrefixHeader.pch";
 				INFOPLIST_FILE = LNImageBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZLN.LNImageBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		4C94ED0C1FA81A6200FBD168 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFBD4E01F0A8B5D27F7CB070 /* Pods-LNImageBrowser.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QQQKQQXNQ;
+				GCC_PREFIX_HEADER = "/Users/zln/张立宁项目/LNImageBrowser/LNImageBrowser/PrefixHeader.pch";
 				INFOPLIST_FILE = LNImageBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZLN.LNImageBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		4C94ED0E1FA81A6200FBD168 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C530145E7EB49D8C65EA95D7 /* Pods-LNImageBrowserUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QQQKQQXNQ;
@@ -397,6 +670,7 @@
 		};
 		4C94ED0F1FA81A6200FBD168 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93E34E1699EA9F48CA6FFF50 /* Pods-LNImageBrowserUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QQQKQQXNQ;
