@@ -11,6 +11,7 @@
 @interface LNImageBrowser()
 
 @property (nonatomic, assign) CGRect oldRect;
+@property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIView *imageView;
 @property (nonatomic, strong) UIImage *image;
 
@@ -27,7 +28,6 @@
     if (self = [super init]) {
         self.oldRect = rect;
         self.image = image;
-        self.backgroundColor = kBlackColor;
         [self addViews];
     }
     return self;
@@ -37,6 +37,15 @@
     UIWindow *keyWindow = [UIApplication sharedApplication].delegate.window;
     [keyWindow addSubview:self];
     self.frame = keyWindow.frame;
+    
+    UIView *contentView = [UIView new];
+    self.contentView = contentView;
+    contentView.alpha = 0;
+    contentView.backgroundColor = kBlackColor;
+    [self addSubview:contentView];
+    [contentView makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(0);
+    }];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.oldRect];
     imageView.userInteractionEnabled = YES;
@@ -52,7 +61,7 @@
     float scale = self.image.size.width / self.image.size.height;
     CGFloat height = kMainScreenWidth / scale;
     [UIView animateWithDuration:.28 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.backgroundColor = [kBlackColor colorWithAlphaComponent:.5];
+        self.contentView.alpha = .5f;
         self.imageView.frame = CGRectMake(0, 0, kMainScreenWidth, height);
     } completion:nil];
 }
@@ -60,6 +69,7 @@
 - (void)hide {
     [UIView animateWithDuration:.28 animations:^{
         self.imageView.frame = self.oldRect;
+        self.contentView.alpha = 0;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];

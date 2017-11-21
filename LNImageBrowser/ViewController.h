@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavigationBarController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : NavigationBarController
 
 
 @end

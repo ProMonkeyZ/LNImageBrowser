@@ -22,6 +22,13 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 
 @implementation ImagesViewController
 
+- (instancetype)init {
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

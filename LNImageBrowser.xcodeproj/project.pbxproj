@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		139EEAA30F19EDEC747C8159 /* libPods-LNImageBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B7E9F2EB76E53EA4164582 /* libPods-LNImageBrowser.a */; };
+		4C1CC2E71FB2E6B000A2455E /* LNProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CC2E61FB2E6B000A2455E /* LNProgressViewController.m */; };
+		4C53826B1FB2EC7D009C428A /* whitetop_btn_back_highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5382691FB2EC7D009C428A /* whitetop_btn_back_highlight@2x.png */; };
+		4C53826C1FB2EC7D009C428A /* whitetop_btn_back_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C53826A1FB2EC7D009C428A /* whitetop_btn_back_normal@2x.png */; };
+		4C7674CD1FC3C4EA002A7A39 /* LNGCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7674CC1FC3C4EA002A7A39 /* LNGCDTimer.m */; };
 		4C94ECEE1FA81A6200FBD168 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ECED1FA81A6200FBD168 /* AppDelegate.m */; };
 		4C94ECF11FA81A6200FBD168 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ECF01FA81A6200FBD168 /* ViewController.m */; };
 		4C94ECF41FA81A6200FBD168 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C94ECF21FA81A6200FBD168 /* Main.storyboard */; };
@@ -46,6 +50,12 @@
 /* Begin PBXFileReference section */
 		11B7E9F2EB76E53EA4164582 /* libPods-LNImageBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNImageBrowser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC6F758A118DAFED640F485 /* libPods-LNImageBrowserUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNImageBrowserUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C1CC2E51FB2E6B000A2455E /* LNProgressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNProgressViewController.h; sourceTree = "<group>"; };
+		4C1CC2E61FB2E6B000A2455E /* LNProgressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNProgressViewController.m; sourceTree = "<group>"; };
+		4C5382691FB2EC7D009C428A /* whitetop_btn_back_highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whitetop_btn_back_highlight@2x.png"; sourceTree = "<group>"; };
+		4C53826A1FB2EC7D009C428A /* whitetop_btn_back_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whitetop_btn_back_normal@2x.png"; sourceTree = "<group>"; };
+		4C7674CB1FC3C4EA002A7A39 /* LNGCDTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNGCDTimer.h; sourceTree = "<group>"; };
+		4C7674CC1FC3C4EA002A7A39 /* LNGCDTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNGCDTimer.m; sourceTree = "<group>"; };
 		4C94ECE91FA81A6200FBD168 /* LNImageBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNImageBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C94ECEC1FA81A6200FBD168 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4C94ECED1FA81A6200FBD168 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -109,6 +119,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C1CC2E41FB2E67F00A2455E /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				4C1CC2E51FB2E6B000A2455E /* LNProgressViewController.h */,
+				4C1CC2E61FB2E6B000A2455E /* LNProgressViewController.m */,
+			);
+			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		4C7674C81FC3C4BE002A7A39 /* Utls */ = {
+			isa = PBXGroup;
+			children = (
+				4C7674CA1FC3C4D2002A7A39 /* Timer */,
+			);
+			name = Utls;
+			sourceTree = "<group>";
+		};
+		4C7674CA1FC3C4D2002A7A39 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				4C7674CB1FC3C4EA002A7A39 /* LNGCDTimer.h */,
+				4C7674CC1FC3C4EA002A7A39 /* LNGCDTimer.m */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
 		4C94ECE01FA81A6100FBD168 = {
 			isa = PBXGroup;
 			children = (
@@ -132,10 +168,14 @@
 		4C94ECEB1FA81A6200FBD168 /* LNImageBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				4C7674C81FC3C4BE002A7A39 /* Utls */,
+				4C5382691FB2EC7D009C428A /* whitetop_btn_back_highlight@2x.png */,
+				4C53826A1FB2EC7D009C428A /* whitetop_btn_back_normal@2x.png */,
 				4C94ECEC1FA81A6200FBD168 /* AppDelegate.h */,
 				4C94ECED1FA81A6200FBD168 /* AppDelegate.m */,
 				4C94ECEF1FA81A6200FBD168 /* ViewController.h */,
 				4C94ECF01FA81A6200FBD168 /* ViewController.m */,
+				4C1CC2E41FB2E67F00A2455E /* ProgressView */,
 				4CCD02191FA84C2200A95C2A /* 图片 */,
 				4C94ED1E1FA8259200FBD168 /* BaseWithRAC */,
 				4C94ED171FA8253B00FBD168 /* ViewController */,
@@ -344,10 +384,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C94ECF91FA81A6200FBD168 /* LaunchScreen.storyboard in Resources */,
+				4C53826C1FB2EC7D009C428A /* whitetop_btn_back_normal@2x.png in Resources */,
 				4CCD02291FA84C2E00A95C2A /* 8.jpg in Resources */,
 				4C94ECF61FA81A6200FBD168 /* Assets.xcassets in Resources */,
 				4CCD02251FA84C2E00A95C2A /* 4.jpg in Resources */,
 				4CCD02261FA84C2E00A95C2A /* 5.jpg in Resources */,
+				4C53826B1FB2EC7D009C428A /* whitetop_btn_back_highlight@2x.png in Resources */,
 				4CCD02271FA84C2E00A95C2A /* 6.jpg in Resources */,
 				4CCD02221FA84C2E00A95C2A /* 1.jpg in Resources */,
 				4CCD02281FA84C2E00A95C2A /* 7.jpg in Resources */,
@@ -464,7 +506,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C7674CD1FC3C4EA002A7A39 /* LNGCDTimer.m in Sources */,
 				4C94ECF11FA81A6200FBD168 /* ViewController.m in Sources */,
+				4C1CC2E71FB2E6B000A2455E /* LNProgressViewController.m in Sources */,
 				4C94ED1D1FA8255900FBD168 /* NavigationBarController.m in Sources */,
 				4C94ED1C1FA8255900FBD168 /* BaseViewController.m in Sources */,
 				4C94ED3D1FA825D900FBD168 /* RACViewController.m in Sources */,
