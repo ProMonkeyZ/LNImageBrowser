@@ -23,7 +23,9 @@
             dispatch_source_cancel(timer);
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (handler) handler(timer);
+                if (handler) {
+                    handler(timer);
+                }
             });
         }
     });
