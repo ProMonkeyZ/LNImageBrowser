@@ -180,7 +180,7 @@
 				4C94ED1E1FA8259200FBD168 /* BaseWithRAC */,
 				4C94ED171FA8253B00FBD168 /* ViewController */,
 				4C94ED141FA8251300FBD168 /* NavigatonBarView */,
-				4C94ED101FA8241A00FBD168 /* TestViewController */,
+				4C94ED101FA8241A00FBD168 /* ImageViewController */,
 				4CCD022E1FA8559000A95C2A /* ImgeBrowser */,
 				4C94ECF21FA81A6200FBD168 /* Main.storyboard */,
 				4C94ECF51FA81A6200FBD168 /* Assets.xcassets */,
@@ -202,7 +202,7 @@
 			path = LNImageBrowserUITests;
 			sourceTree = "<group>";
 		};
-		4C94ED101FA8241A00FBD168 /* TestViewController */ = {
+		4C94ED101FA8241A00FBD168 /* ImageViewController */ = {
 			isa = PBXGroup;
 			children = (
 				4C94ED111FA8244100FBD168 /* ImagesViewController.h */,
@@ -210,7 +210,7 @@
 				4CCD022B1FA84DD600A95C2A /* LNImageCollectionViewCell.h */,
 				4CCD022C1FA84DD600A95C2A /* LNImageCollectionViewCell.m */,
 			);
-			path = TestViewController;
+			path = ImageViewController;
 			sourceTree = "<group>";
 		};
 		4C94ED141FA8251300FBD168 /* NavigatonBarView */ = {
