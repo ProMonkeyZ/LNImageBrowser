@@ -12,6 +12,7 @@
 		4C53826B1FB2EC7D009C428A /* whitetop_btn_back_highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5382691FB2EC7D009C428A /* whitetop_btn_back_highlight@2x.png */; };
 		4C53826C1FB2EC7D009C428A /* whitetop_btn_back_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C53826A1FB2EC7D009C428A /* whitetop_btn_back_normal@2x.png */; };
 		4C7674CD1FC3C4EA002A7A39 /* LNGCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7674CC1FC3C4EA002A7A39 /* LNGCDTimer.m */; };
+		4C8CEAD71FCD4C0D00E39423 /* Kiss.GIF in Resources */ = {isa = PBXBuildFile; fileRef = 4C8CEAD61FCD4C0D00E39423 /* Kiss.GIF */; };
 		4C94ECEE1FA81A6200FBD168 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ECED1FA81A6200FBD168 /* AppDelegate.m */; };
 		4C94ECF11FA81A6200FBD168 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ECF01FA81A6200FBD168 /* ViewController.m */; };
 		4C94ECF41FA81A6200FBD168 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C94ECF21FA81A6200FBD168 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		4C53826A1FB2EC7D009C428A /* whitetop_btn_back_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whitetop_btn_back_normal@2x.png"; sourceTree = "<group>"; };
 		4C7674CB1FC3C4EA002A7A39 /* LNGCDTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNGCDTimer.h; sourceTree = "<group>"; };
 		4C7674CC1FC3C4EA002A7A39 /* LNGCDTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNGCDTimer.m; sourceTree = "<group>"; };
+		4C8CEAD61FCD4C0D00E39423 /* Kiss.GIF */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Kiss.GIF; sourceTree = "<group>"; };
 		4C94ECE91FA81A6200FBD168 /* LNImageBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNImageBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C94ECEC1FA81A6200FBD168 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4C94ECED1FA81A6200FBD168 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				4C7674C81FC3C4BE002A7A39 /* Utls */,
 				4C5382691FB2EC7D009C428A /* whitetop_btn_back_highlight@2x.png */,
 				4C53826A1FB2EC7D009C428A /* whitetop_btn_back_normal@2x.png */,
+				4C8CEAD61FCD4C0D00E39423 /* Kiss.GIF */,
 				4C94ECEC1FA81A6200FBD168 /* AppDelegate.h */,
 				4C94ECED1FA81A6200FBD168 /* AppDelegate.m */,
 				4C94ECEF1FA81A6200FBD168 /* ViewController.h */,
@@ -395,6 +398,7 @@
 				4CCD02281FA84C2E00A95C2A /* 7.jpg in Resources */,
 				4CCD02241FA84C2E00A95C2A /* 3.jpg in Resources */,
 				4CCD02231FA84C2E00A95C2A /* 2.jpg in Resources */,
+				4C8CEAD71FCD4C0D00E39423 /* Kiss.GIF in Resources */,
 				4C94ECF41FA81A6200FBD168 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

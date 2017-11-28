@@ -18,6 +18,8 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) NSArray<NSString *> *rectArray;
 
+@property (nonatomic, strong) NSMutableArray *imagesArray;
+
 @end
 
 @implementation ImagesViewController
@@ -31,6 +33,8 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self createImageData];
     
     [self initUI];
 }
@@ -60,13 +64,13 @@ static NSString *cellId = @"LNImageCollectionViewCell";
     layout.sectionInset = UIEdgeInsetsMake(15, 11, 15, 11);
     layout.minimumLineSpacing = 2;
     layout.minimumInteritemSpacing = 2;
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 260, kMainScreenWidth, itemWidth) collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collectionView.delegate = self;
     collectionView.dataSource = self;
     [collectionView registerClass:[LNImageCollectionViewCell class] forCellWithReuseIdentifier:cellId];
     collectionView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:collectionView];
-    [self nearByNavigationBarView:collectionView isShowBottom:YES];
+    [self nearByNavigationBarView:collectionView isShowBottom:NO];
     collectionView.showsHorizontalScrollIndicator = NO;
     collectionView.backgroundColor = kWhiteColor;
     self.collectionView = collectionView;
@@ -74,13 +78,15 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 
 #pragma mark - UICollectionViewDelegate, UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.dataSource.count;
+//    return self.dataSource.count;
+    return self.imagesArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LNImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     cell.backgroundColor = kWhiteColor;
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[self.dataSource objectAtIndex:indexPath.item]]];
+//    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[self.dataSource objectAtIndex:indexPath.item]]];
+    cell.imageView.image = [self.imagesArray objectAtIndex:indexPath.item];
     
     return cell;
 }
@@ -93,6 +99,31 @@ static NSString *cellId = @"LNImageCollectionViewCell";
     CGRect rectInWindow = [cell convertRect:cell.imageView.frame toView:window];
     
     [LNImageBrowser showBrowserFromRect:rectInWindow andImage:cell.imageView.image];
+}
+
+/**
+ 创建gif分解图片数据
+ */
+- (void)createImageData {
+    NSMutableArray *mArray = [NSMutableArray array];
+    
+    NSData *gifData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Kiss" ofType:@"GIF"]];
+    
+    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)gifData, NULL);
+    size_t count = CGImageSourceGetCount(source);
+    
+    for (int i = 0; i < count; i ++) {
+        CGImageRef image = CGImageSourceCreateImageAtIndex(source, i, NULL);
+        CGImageRef clipedImage = CGImageCreateWithImageInRect(image, CGRectMake(10, 10, CGImageGetWidth(image) - 20, CGImageGetHeight(image) - 20));
+        
+//        UIImage *newImage = [UIImage imageWithCGImage:image];
+        UIImage *newImage = [UIImage imageWithCGImage:clipedImage];
+        
+        [mArray addObject:newImage];
+    }
+    CFRelease(source);
+    
+    self.imagesArray = mArray;
 }
 
 #pragma mark - getter
