@@ -102,9 +102,9 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 
     LNPhotoBrowserViewController *vc = [LNPhotoBrowserViewController new];
     vc.delegate = self;
-    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
 
-    [self presentViewController:vc animated:NO completion:nil];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 /**

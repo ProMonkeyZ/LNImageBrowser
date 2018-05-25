@@ -6,7 +6,7 @@
 #import "LNPhotoBrowserCollectionViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-#define kMinZoomScale 0.6f
+#define kMinZoomScale 1.f
 #define kMaxZoomScale 2.0f
 
 @interface LNPhotoBrowserCollectionViewCell () <UIScrollViewDelegate>
@@ -58,27 +58,32 @@
                                               completed:^(UIImage *_Nullable image, NSData *_Nullable data, NSError *_Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL *_Nullable imageURL) {
                                                   [self.activity stopAnimating];
                                                   [self.imageView setImage:image];
+                                                  [self adjustFrameWithImage:image];
                                               }];
 }
 
 - (void)adjustFrameWithImage:(UIImage *)image {
     [self.scrollView setZoomScale:1.f];
-    CGRect frame = self.scrollView.frame;
+    CGRect scrollFrame = self.scrollView.frame;
     if (image) {
         CGSize imageSize = image.size;//获得图片的size
+        
         CGRect imageFrame = CGRectMake(0, 0, imageSize.width, imageSize.height);
-
-        CGFloat ratio = frame.size.width / imageFrame.size.width;
-        imageFrame.size.height = imageFrame.size.height * ratio;
-        imageFrame.size.width = frame.size.width;
+        
+        // 图片宽度大于相框宽度,等比例缩放图片,使宽度填充.
+        if (imageSize.width > scrollFrame.size.width) {
+            CGFloat ratio = scrollFrame.size.width / imageFrame.size.width;
+            imageFrame.size.height = imageFrame.size.height * ratio;
+            imageFrame.size.width = scrollFrame.size.width;
+        }
 
         self.imageView.frame = imageFrame;
         self.scrollView.contentSize = self.imageView.frame.size;
         self.imageView.center = [self centerOfScrollViewContent:self.scrollView];
 
         //根据图片大小找到最大缩放等级，保证最大缩放时候，不会有黑边
-        CGFloat maxScale = frame.size.height / imageFrame.size.height;
-        maxScale = frame.size.width / imageFrame.size.width > maxScale ? frame.size.width / imageFrame.size.width : maxScale;
+        CGFloat maxScale = scrollFrame.size.height / imageFrame.size.height;
+        maxScale = scrollFrame.size.width / imageFrame.size.width > maxScale ? scrollFrame.size.width / imageFrame.size.width : maxScale;
         //超过了设置的最大的才算数
         maxScale = maxScale > kMaxZoomScale ? maxScale : kMaxZoomScale;
         //初始化
@@ -111,6 +116,14 @@
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
     NSLog(@"scrollViewDidZoom");
+    CGFloat xcenter = scrollView.center.x , ycenter = scrollView.center.y;
+    
+    //目前contentsize的width是否大于原scrollview的contentsize，如果大于，设置imageview中心x点为contentsize的一半，以固定imageview在该contentsize中心。如果不大于说明图像的宽还没有超出屏幕范围，可继续让中心x点为屏幕中点，此种情况确保图像在屏幕中心。
+    
+    xcenter = scrollView.contentSize.width > scrollView.frame.size.width ? scrollView.contentSize.width/2 : xcenter;
+    
+    ycenter = scrollView.contentSize.height > scrollView.frame.size.height ? scrollView.contentSize.height/2 : ycenter;
+    [self.imageView setCenter:CGPointMake(xcenter, ycenter)];
 }
 
 #pragma mark - privaty
@@ -122,19 +135,15 @@
 }
 
 - (void)doubleTapAction:(UITapGestureRecognizer *)doubleGesture {
-
-//    float newScale = [self.scrollView zoomScale] * 1.5;
-//    CGRect zoomRect = [self zoomRectForScale:newScale withCenter:[doubleGesture locationInView:doubleGesture.view]];
-//    [self.scrollView zoomToRect:zoomRect animated:YES];
-//    return;
-
-    CGPoint touchPoint = [doubleGesture locationInView:self];
     if (self.scrollView.zoomScale <= 1.0) {
-
-//        CGFloat scaleX = touchPoint.x + self.scrollView.contentOffset.x;//需要放大的图片的X点
-//        CGFloat sacleY = touchPoint.y + self.scrollView.contentOffset.y;//需要放大的图片的Y点
-//        [self.scrollView zoomToRect:CGRectMake(scaleX, sacleY, 10, 10) animated:YES];
-        float newScale = [self.scrollView zoomScale] * 1.5;
+        
+        // 初始化放大倍数为1.5倍
+        float ratio = 1.5f;
+        if (self.imageView.frame.size.height < self.scrollView.frame.size.height) {
+            ratio = self.scrollView.frame.size.height / self.imageView.frame.size.height;
+        }
+        
+        float newScale = [self.scrollView zoomScale] * ratio;
         CGRect zoomRect = [self zoomRectForScale:newScale withCenter:[doubleGesture locationInView:doubleGesture.view]];
         [self.scrollView zoomToRect:zoomRect animated:YES];
     } else {
@@ -155,18 +164,8 @@
     // choose an origin so as to get the right center.
     zoomRect.origin.x    = center.x - (zoomRect.size.width  / 2.0);
     zoomRect.origin.y    = center.y - (zoomRect.size.height / 2.0);
-
     return zoomRect;
 }
-
-//- (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center {
-//    CGRect zoomRect;
-//    zoomRect.size.height = self.frame.size.height / scale;
-//    zoomRect.size.width = self.frame.size.width / scale;
-//    zoomRect.origin.x = center.x - (zoomRect.size.width / 2.0f);
-//    zoomRect.origin.y = center.y - (zoomRect.size.height / 2.0f);
-//    return zoomRect;
-//}
 
 #pragma mark - getter
 
