@@ -9,16 +9,19 @@
 #import "ImagesViewController.h"
 #import "LNImageCollectionViewCell.h"
 #import "LNImageBrowser.h"
+#import "LNPhotoBrowserViewController.h"
+#import "LNPhotoBrowserAnimatedTransitioning.h"
 
 static NSString *cellId = @"LNImageCollectionViewCell";
 
-@interface ImagesViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ImagesViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, LNPhotoBrowserViewControllerDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) NSArray<NSString *> *rectArray;
 
 @property (nonatomic, strong) NSMutableArray *imagesArray;
+@property(nonatomic, assign) CGRect currentRect;
 
 @end
 
@@ -78,15 +81,15 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 
 #pragma mark - UICollectionViewDelegate, UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-//    return self.dataSource.count;
-    return self.imagesArray.count;
+    return self.dataSource.count;
+//    return self.imagesArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LNImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     cell.backgroundColor = kWhiteColor;
-//    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[self.dataSource objectAtIndex:indexPath.item]]];
-    cell.imageView.image = [self.imagesArray objectAtIndex:indexPath.item];
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[self.dataSource objectAtIndex:indexPath.item]]];
+//    cell.imageView.image = [self.imagesArray objectAtIndex:indexPath.item];
     
     return cell;
 }
@@ -94,11 +97,14 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     LNImageCollectionViewCell *cell = (LNImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     UIWindow* window = [UIApplication sharedApplication].keyWindow;
-    
-    // convert rect to self(cell)
-    CGRect rectInWindow = [cell convertRect:cell.imageView.frame toView:window];
-    
-    [LNImageBrowser showBrowserFromRect:rectInWindow andImage:cell.imageView.image];
+    self.currentRect = [cell convertRect:cell.imageView.frame toView:window];
+//    [LNImageBrowser showBrowserFromRect:rectInWindow andImage:cell.imageView.image];
+
+    LNPhotoBrowserViewController *vc = [LNPhotoBrowserViewController new];
+    vc.delegate = self;
+    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+
+    [self presentViewController:vc animated:NO completion:nil];
 }
 
 /**
@@ -114,16 +120,30 @@ static NSString *cellId = @"LNImageCollectionViewCell";
     
     for (int i = 0; i < count; i ++) {
         CGImageRef image = CGImageSourceCreateImageAtIndex(source, i, NULL);
-        CGImageRef clipedImage = CGImageCreateWithImageInRect(image, CGRectMake(10, 10, CGImageGetWidth(image) - 20, CGImageGetHeight(image) - 20));
+//        CGImageRef clipedImage = CGImageCreateWithImageInRect(image, CGRectMake(10, 10, CGImageGetWidth(image) - 20, CGImageGetHeight(image) - 20));
         
-//        UIImage *newImage = [UIImage imageWithCGImage:image];
-        UIImage *newImage = [UIImage imageWithCGImage:clipedImage];
+        UIImage *newImage = [UIImage imageWithCGImage:image];
+//        UIImage *newImage = [UIImage imageWithCGImage:clipedImage];
         
         [mArray addObject:newImage];
     }
     CFRelease(source);
     
     self.imagesArray = mArray;
+}
+
+#pragma mark - LNPhotoBrowserViewControllerDelegate
+
+- (NSInteger)numberOfItemsInBrowserViewController:(LNPhotoBrowserViewController *)viewController {
+    return self.dataSource.count;
+}
+
+- (UIImage *)placeholdImageAtInex:(NSInteger)index {
+    return [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[self.dataSource objectAtIndex:index]]];
+}
+
+- (NSURL *)highDefinitionImageUrlAtInex:(NSInteger)index {
+    return nil;
 }
 
 #pragma mark - getter

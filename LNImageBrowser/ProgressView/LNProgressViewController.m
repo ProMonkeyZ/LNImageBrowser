@@ -27,7 +27,43 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initUI];
+    [self testTextViewMasonry];
+    
+//    [self initUI];
+}
+
+- (void)testTextViewMasonry {
+    UIView *contentView = [UIView new];
+    contentView.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:contentView];
+    [contentView makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(0);
+        make.width.height.equalTo(300);
+    }];
+    
+    UITextView *textView = [UITextView new];
+    textView.backgroundColor = [UIColor redColor];
+    [contentView addSubview:textView];
+    [textView makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(UIEdgeInsetsMake(10, 10, 10, 10));
+    }];
+    
+    UIView *textContentView = [UIView new];
+    [textView addSubview:textContentView];
+    [textContentView makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(textView);
+        make.height.equalTo(textView);
+        make.center.equalTo(0);
+    }];
+    
+    UILabel *label = [UILabel new];
+    label.numberOfLines = 0;
+    label.text = @"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试";
+    
+    [textContentView addSubview:label];
+    [label makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(0);
+    }];
 }
 
 - (void)initUI {

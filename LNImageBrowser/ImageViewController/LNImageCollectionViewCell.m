@@ -10,11 +10,11 @@
 
 @interface LNImageCollectionViewCell()
 
-@property (nonatomic, strong) UIImageView *imageView;
-
 @end
 
 @implementation LNImageCollectionViewCell
+
+@synthesize imageView = _imageView;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -24,15 +24,22 @@
 }
 
 - (void)addViews {
-    UIImageView *imageView = [UIImageView new];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    imageView.clipsToBounds = YES;
-    [self.contentView addSubview:imageView];
-    [imageView makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(0);
-    }];
+    [self.contentView addSubview:self.imageView];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
     
-    self.imageView = imageView;
+    self.imageView.frame = self.contentView.bounds;
+}
+
+- (UIImageView *)imageView {
+    if (!_imageView) {
+        _imageView = [UIImageView new];
+        _imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView.clipsToBounds = YES;
+    }
+    return _imageView;
 }
 
 @end
