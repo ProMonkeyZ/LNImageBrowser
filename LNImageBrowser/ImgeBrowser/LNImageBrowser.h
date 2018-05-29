@@ -8,8 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LNImageBrowser : UIView
+@class LNImageBrowser;
 
-+ (void)showBrowserFromRect:(CGRect)oldRect andImage:(UIImage *)image;
+@protocol LNImageBrowserDelegate <NSObject>
+
+- (NSInteger)numberOfItemsInBrowser:(LNImageBrowser *)browser;
+
+/**
+ 图片对应的原始位置
+
+ @param index 下标
+ @return 位置结构体
+ */
+- (CGRect)oldRectForItemAtIndex:(NSInteger)index;
+
+- (UIImage *)placeholdImageAtInex:(NSInteger)index;
+
+- (NSURL *)highDefinitionImageUrlAtInex:(NSInteger)index;
+
+@end
+
+@interface LNImageBrowser : NSObject
+
++ (void)showBrowserAtIndex:(NSInteger)index andImage:(UIImage *)image andDelegate:(id <LNImageBrowserDelegate>)delegate;
 
 @end

@@ -190,6 +190,7 @@
     if (!_imageView) {
         _imageView = [UIImageView new];
         _imageView.userInteractionEnabled = YES;
+//        _imageView.backgroundColor = [UIColor clearColor];
         [_imageView addGestureRecognizer:self.singleTap];
         [_imageView addGestureRecognizer:self.doubleTap];
     }

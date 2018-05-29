@@ -8,13 +8,14 @@
 
 #import "ImagesViewController.h"
 #import "LNImageCollectionViewCell.h"
-#import "LNImageBrowser.h"
 #import "LNPhotoBrowserViewController.h"
 #import "LNPhotoBrowserAnimatedTransitioning.h"
 
+#import "LNImageBrowser.h"
+
 static NSString *cellId = @"LNImageCollectionViewCell";
 
-@interface ImagesViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, LNPhotoBrowserViewControllerDelegate>
+@interface ImagesViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, LNImageBrowserDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *dataSource;
@@ -100,11 +101,13 @@ static NSString *cellId = @"LNImageCollectionViewCell";
     self.currentRect = [cell convertRect:cell.imageView.frame toView:window];
 //    [LNImageBrowser showBrowserFromRect:rectInWindow andImage:cell.imageView.image];
 
-    LNPhotoBrowserViewController *vc = [LNPhotoBrowserViewController new];
-    vc.delegate = self;
+//    LNPhotoBrowserViewController *vc = [LNPhotoBrowserViewController new];
+//    vc.delegate = self;
 //    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    
+    [LNImageBrowser showBrowserAtIndex:indexPath.item andImage:cell.imageView.image andDelegate:self];
 
-    [self presentViewController:vc animated:YES completion:nil];
+//    [self presentViewController:vc animated:YES completion:nil];
 }
 
 /**
@@ -133,13 +136,26 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 }
 
 #pragma mark - LNPhotoBrowserViewControllerDelegate
-
-- (NSInteger)numberOfItemsInBrowserViewController:(LNPhotoBrowserViewController *)viewController {
+- (NSInteger)numberOfItemsInBrowser:(LNImageBrowser *)browser {
     return self.dataSource.count;
 }
 
+/**
+ 图片对应的原始位置
+ 
+ @param index 下标
+ @return 位置结构体
+ */
+- (CGRect)oldRectForItemAtIndex:(NSInteger)index {
+    LNImageCollectionViewCell *cell = (LNImageCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    CGRect rect = [cell.imageView convertRect:cell.imageView.bounds toView:window];
+    return rect;
+}
+
 - (UIImage *)placeholdImageAtInex:(NSInteger)index {
-    return [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[self.dataSource objectAtIndex:index]]];
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[self.dataSource objectAtIndex:index]]];
+    return image;
 }
 
 - (NSURL *)highDefinitionImageUrlAtInex:(NSInteger)index {
