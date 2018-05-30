@@ -8,8 +8,6 @@
 
 #import "ImagesViewController.h"
 #import "LNImageCollectionViewCell.h"
-#import "LNPhotoBrowserViewController.h"
-#import "LNPhotoBrowserAnimatedTransitioning.h"
 
 #import "LNImageBrowser.h"
 

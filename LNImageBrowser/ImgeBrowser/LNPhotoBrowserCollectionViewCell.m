@@ -129,8 +129,8 @@
 #pragma mark - privaty
 
 - (void)singleTapAction:(UITapGestureRecognizer *)singleGesture {
-    if ([self.delegate respondsToSelector:@selector(tapTheImageVeiw:)]) {
-        [self.delegate tapTheImageVeiw:self.imageView];
+    if ([self.delegate respondsToSelector:@selector(tapTheImageVeiw:inScrollView:)]) {
+        [self.delegate tapTheImageVeiw:self.imageView inScrollView:self.scrollView];
     }
 }
 
@@ -162,8 +162,8 @@
     zoomRect.size.width  = [self.scrollView frame].size.width  / scale;
 
     // choose an origin so as to get the right center.
-    zoomRect.origin.x    = center.x - (zoomRect.size.width  / 2.0);
-    zoomRect.origin.y    = center.y - (zoomRect.size.height / 2.0);
+    zoomRect.origin.x    = center.x - (zoomRect.size.width  / 2.0f);
+    zoomRect.origin.y    = center.y - (zoomRect.size.height / 2.0f);
     return zoomRect;
 }
 

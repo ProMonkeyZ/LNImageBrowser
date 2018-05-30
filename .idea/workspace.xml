@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28112dfe-2693-4dca-8718-1d5469b94667" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserAnimatedTransitioning.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserAnimatedTransitioning.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserViewController.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LNImageBrowser.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/LNImageBrowser.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LNImageBrowser/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LNImageBrowser/Base.lproj/Main.storyboard" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/LNImageBrowser/ImageViewController/ImagesViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/LNImageBrowser/ImageViewController/ImagesViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LNImageBrowser/ImageViewController/LNImageCollectionViewCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/LNImageBrowser/ImageViewController/LNImageCollectionViewCell.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LNImageBrowser/ProgressView/LNProgressViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/LNImageBrowser/ProgressView/LNProgressViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LNImageBrowser/Timer/LNGCDTimer.m" beforeDir="false" afterPath="$PROJECT_DIR$/LNImageBrowser/Timer/LNGCDTimer.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/zln.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/zln.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNImageBrowser.m" beforeDir="false" afterPath="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNImageBrowser.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserAnimatedTransitioning.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserAnimatedTransitioning.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.m" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/Library/Developer/Xcode/DerivedData/LNImageBrowser-gryzpeizgqouzjahhkiqtnqqvahf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +24,8 @@
       <file leaf-file-name="ImagesViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImageViewController/ImagesViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2142">
-              <caret line="102" column="74" selection-start-line="102" selection-start-column="74" selection-end-line="102" selection-end-column="74" />
+            <state relative-caret-position="249">
+              <caret line="93" column="1" lean-forward="true" selection-start-line="93" selection-start-column="1" selection-end-line="93" selection-end-column="1" />
               <folding>
                 <element signature="e#138#170#0" expanded="true" />
               </folding>
@@ -40,11 +33,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UIViewController.h" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIViewController.h">
+      <file leaf-file-name="LNImageBrowser.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNImageBrowser.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5061">
-              <caret line="241" column="45" selection-start-line="241" selection-start-column="45" selection-end-line="241" selection-end-column="45" />
+            <state relative-caret-position="197">
+              <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UIView.h" pinned="false" current-in-tab="false">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIView.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="76" column="4" lean-forward="true" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NSDate.h" pinned="false" current-in-tab="false">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDate.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="13" column="15" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UIWindow.h" pinned="false" current-in-tab="false">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -52,26 +72,20 @@
       <file leaf-file-name="LNPhotoBrowserViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="114" column="59" lean-forward="true" selection-start-line="114" selection-start-column="59" selection-end-line="114" selection-end-column="59" />
+            <state relative-caret-position="2394">
+              <caret line="114" column="59" selection-start-line="114" selection-start-column="59" selection-end-line="114" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UICollectionView.h" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UICollectionView.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1176">
-              <caret line="56" column="10" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LNPhotoBrowserCollectionViewCell.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LNPhotoBrowserCollectionViewCell.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
+            <state relative-caret-position="558">
+              <caret line="165" column="68" selection-start-line="165" selection-start-column="68" selection-end-line="165" selection-end-column="68" />
+              <folding>
+                <element signature="e#87#131#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,10 +93,15 @@
       <file leaf-file-name="LNPhotoBrowserCollectionViewCell.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
+            <state relative-caret-position="357">
+              <caret line="17" column="79" selection-start-line="17" selection-start-column="79" selection-end-line="17" selection-end-column="79" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImagesViewController.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImageViewController/ImagesViewController.h">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="LNImageCollectionViewCell.m" pinned="false" current-in-tab="false">
@@ -99,6 +118,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>collectionView</find>
+      <find>scrollViewDidScroll:</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -107,10 +127,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/LNImageBrowser/ImageViewController/ImagesViewController.m" />
         <option value="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.h" />
         <option value="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserViewController.m" />
         <option value="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.m" />
+        <option value="$PROJECT_DIR$/LNImageBrowser/ImageViewController/ImagesViewController.m" />
+        <option value="$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNImageBrowser.m" />
       </list>
     </option>
   </component>
@@ -153,7 +174,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Cidr.FilesView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -198,6 +218,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Cidr.FilesView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -239,11 +260,12 @@
       <workItem from="1526902848625" duration="5390000" />
       <workItem from="1526975210450" duration="23000" />
       <workItem from="1527063180381" duration="5252000" />
+      <workItem from="1527643274935" duration="3636000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10665000" />
+    <option name="totallyTimeSpent" value="14301000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-70" width="1920" height="1057" extended-state="6" />
@@ -255,12 +277,12 @@
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32916668" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.14270833" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.046875" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -277,6 +299,61 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImageViewController/ImagesViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2142">
+          <caret line="102" column="74" selection-start-line="102" selection-start-column="74" selection-end-line="102" selection-end-column="74" />
+          <folding>
+            <element signature="e#138#170#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5061">
+          <caret line="241" column="45" selection-start-line="241" selection-start-column="45" selection-end-line="241" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2394">
+          <caret line="114" column="59" lean-forward="true" selection-start-line="114" selection-start-column="59" selection-end-line="114" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UICollectionView.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1176">
+          <caret line="56" column="10" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImageViewController/LNImageCollectionViewCell.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="38" column="52" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3045">
+          <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
+          <folding>
+            <element signature="e#87#131#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImageViewController/ImagesViewController.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2100">
@@ -402,6 +479,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2394">
+          <caret line="114" column="59" selection-start-line="114" selection-start-column="59" selection-end-line="114" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="165" column="68" selection-start-line="165" selection-start-column="68" selection-end-line="165" selection-end-column="68" />
+          <folding>
+            <element signature="e#87#131#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserAnimatedTransitioning.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserAnimatedTransitioning.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-389">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="79" selection-start-line="17" selection-start-column="79" selection-end-line="17" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImageViewController/ImagesViewController.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImageViewController/ImagesViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="93" column="1" lean-forward="true" selection-start-line="93" selection-start-column="1" selection-end-line="93" selection-end-column="1" />
+          <folding>
+            <element signature="e#138#170#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImageViewController/LNImageCollectionViewCell.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="798">
@@ -409,34 +540,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImageViewController/ImagesViewController.m">
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDate.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="102" column="74" selection-start-line="102" selection-start-column="74" selection-end-line="102" selection-end-column="74" />
-          <folding>
-            <element signature="e#138#170#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="252">
+          <caret line="13" column="15" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.h">
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIView.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
+        <state relative-caret-position="317">
+          <caret line="76" column="4" lean-forward="true" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserViewController.m">
+    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNImageBrowser.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="114" column="59" lean-forward="true" selection-start-line="114" selection-start-column="59" selection-end-line="114" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LNImageBrowser/ImgeBrowser/LNPhotoBrowserCollectionViewCell.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
+        <state relative-caret-position="197">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
         </state>
       </provider>
     </entry>

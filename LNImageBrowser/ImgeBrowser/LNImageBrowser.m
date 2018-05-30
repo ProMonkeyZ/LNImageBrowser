@@ -11,22 +11,22 @@
 
 static NSTimeInterval kAnimationDuration = .28;
 
-@interface LNImageBrowser() <LNImageBrowserViewDelegate>
+@interface LNImageBrowser () <LNImageBrowserViewDelegate>
 
-@property(nonatomic, strong) UIWindow *window;
+@property(nonatomic, weak) id <LNImageBrowserDelegate> delegate;
 @property(nonatomic, strong) UIView *backgroundView;
 @property(nonatomic, strong) LNImageBrowserView *browserView;
-@property(nonatomic, weak) id <LNImageBrowserDelegate> delegate;
 // 用来做动画的图片视图
 @property(nonatomic, strong) UIImageView *panelImageView;
-@property(nonatomic, assign) NSInteger currentIndex;
 @property(nonatomic, strong) UIImage *currentImage;
+@property(nonatomic, assign) NSInteger firstIndex;
+@property(nonatomic, assign) UIWindowLevel oldLevel;
 
 @end
 
 @implementation LNImageBrowser
 
-+ (void)showBrowserAtIndex:(NSInteger)index andImage:(UIImage *)image andDelegate:(id<LNImageBrowserDelegate>)delegate {
++ (void)showBrowserAtIndex:(NSInteger)index andImage:(UIImage *)image andDelegate:(id <LNImageBrowserDelegate>)delegate {
     LNImageBrowser *browser = [[LNImageBrowser alloc] initWithCurrentIndex:index andCurrentImage:image];
     browser.delegate = delegate;
     [browser show];
@@ -34,8 +34,9 @@ static NSTimeInterval kAnimationDuration = .28;
 
 - (instancetype)initWithCurrentIndex:(NSInteger)index andCurrentImage:(UIImage *)image {
     if (self = [super init]) {
-        self.currentIndex = index;
+        self.firstIndex = index;
         self.currentImage = image;
+        self.oldLevel = [[UIApplication sharedApplication] keyWindow].windowLevel;
         [self addViews];
     }
     return self;
@@ -43,6 +44,7 @@ static NSTimeInterval kAnimationDuration = .28;
 
 - (void)addViews {
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    window.windowLevel = UIWindowLevelAlert;
     [window addSubview:self.backgroundView];
     [window addSubview:self.browserView];
     [window addSubview:self.panelImageView];
@@ -53,43 +55,55 @@ static NSTimeInterval kAnimationDuration = .28;
     self.backgroundView.frame = window.bounds;
     CGRect panelImageViewFrame = CGRectZero;
     if ([self.delegate respondsToSelector:@selector(oldRectForItemAtIndex:)]) {
-        panelImageViewFrame = [self.delegate oldRectForItemAtIndex:self.currentIndex];
+        panelImageViewFrame = [self.delegate oldRectForItemAtIndex:self.firstIndex];
     }
     self.panelImageView.frame = panelImageViewFrame;
     self.panelImageView.image = self.currentImage;
-    
+
     CGSize imageSize = self.currentImage.size;//获得图片的size
     CGRect imageFrame = CGRectMake(0, 0, imageSize.width, imageSize.height);
-    
+
     // 图片宽度大于相框宽度,等比例缩放图片,使宽度填充.
     if (imageSize.width > window.bounds.size.width) {
         CGFloat ratio = window.bounds.size.width / imageFrame.size.width;
         imageFrame.size.height = imageFrame.size.height * ratio;
         imageFrame.size.width = window.bounds.size.width;
     }
-    imageFrame.origin.y = (window.bounds.size.height - imageFrame.size.height) * .5f;
+    // ImageView的高度小于屏幕高度时让图片在浏览器中心显示
+    if (imageFrame.size.height < window.bounds.size.height) {
+        imageFrame.origin.y = (window.bounds.size.height - imageFrame.size.height) * .5f;
+    }
     [UIView animateWithDuration:kAnimationDuration delay:0
-                        options:UIViewAnimationOptionCurveEaseOut
+                        options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          self.backgroundView.alpha = 1;
                          self.panelImageView.frame = imageFrame;
-    } completion:^(BOOL finished) {
-        self.browserView.hidden = NO;
-        self.panelImageView.hidden = YES;
-    }];
+                     }
+                     completion:^(BOOL finished) {
+                self.browserView.hidden = NO;
+                self.panelImageView.hidden = YES;
+            }];
 }
 
-- (void)hideWithImageView:(UIImageView *)imageView {
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    [window resignKeyWindow];
-    CGRect panelImageViewFrame = CGRectZero;
-    if ([self.delegate respondsToSelector:@selector(oldRectForItemAtIndex:)]) {
-        panelImageViewFrame = [self.delegate oldRectForItemAtIndex:self.currentIndex];
+- (void)hideWithImageView:(UIImageView *)imageView inScrollView:(UIScrollView *)scrollView {
+    __block UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    CGRect panelImageViewFrame = imageView.frame;
+    if (scrollView.contentOffset.x > 0) {
+        panelImageViewFrame.origin.x = -scrollView.contentOffset.x;
     }
-    self.panelImageView.frame = imageView.frame;
+    if (scrollView.contentOffset.y > 0) {
+        panelImageViewFrame.origin.y = -scrollView.contentOffset.y;
+    }
+    self.panelImageView.frame = panelImageViewFrame;
     self.panelImageView.image = imageView.image;
     self.panelImageView.hidden = NO;
     self.browserView.hidden = YES;
+    
+    if ([self.delegate respondsToSelector:@selector(oldRectForItemAtIndex:)]) {
+        panelImageViewFrame = [self.delegate oldRectForItemAtIndex:self.browserView.currentIndex];
+    } else {
+        panelImageViewFrame = CGRectZero;
+    }
     [UIView animateWithDuration:kAnimationDuration animations:^{
         self.backgroundView.alpha = 0;
         self.panelImageView.frame = panelImageViewFrame;
@@ -98,13 +112,14 @@ static NSTimeInterval kAnimationDuration = .28;
         [self.backgroundView removeFromSuperview];
         [self.browserView removeFromSuperview];
         self.browserView = nil;
+        window.windowLevel = self.oldLevel;
     }];
 }
 
 #pragma mrak - LNImageBrowserViewDelegate
 
-- (void)singleTapAtBrowserView:(LNImageBrowserView *)browserView andImageView:(UIImageView *)imageView {
-    [self hideWithImageView:imageView];
+- (void)singleTapAtBrowserView:(LNImageBrowserView *)browserView andImageView:(UIImageView *)imageView andScrollView:(UIScrollView *)scrollView {
+    [self hideWithImageView:imageView inScrollView:scrollView];
 }
 
 - (NSInteger)numberOfItemsInBrowserView:(LNImageBrowserView *)browserView {
@@ -130,15 +145,6 @@ static NSTimeInterval kAnimationDuration = .28;
 
 #pragma mark - getter
 
-- (UIWindow *)window {
-    if (!_window) {
-        _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        _window.windowLevel = UIWindowLevelStatusBar;
-        _window.backgroundColor = [UIColor clearColor];
-    }
-    return _window;
-}
-
 - (UIView *)backgroundView {
     if (!_backgroundView) {
         _backgroundView = [[UIView alloc] init];
@@ -151,13 +157,15 @@ static NSTimeInterval kAnimationDuration = .28;
 - (UIImageView *)panelImageView {
     if (!_panelImageView) {
         _panelImageView = [UIImageView new];
+        _panelImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _panelImageView.clipsToBounds = YES;
     }
     return _panelImageView;
 }
 
 - (LNImageBrowserView *)browserView {
     if (!_browserView) {
-        _browserView = [[LNImageBrowserView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _browserView = [[LNImageBrowserView alloc] initWithFrame:[UIScreen mainScreen].bounds andFirstIndex:self.firstIndex];
         _browserView.delegate = self;
         _browserView.hidden = YES;
     }
@@ -165,7 +173,7 @@ static NSTimeInterval kAnimationDuration = .28;
 }
 
 - (void)dealloc {
-    NSLog(@"dealloc --- %@",self.class);
+    NSLog(@"dealloc --- %@", self.class);
 }
 
 @end

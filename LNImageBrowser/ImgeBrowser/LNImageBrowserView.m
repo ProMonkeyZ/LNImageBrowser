@@ -25,8 +25,19 @@ static NSString *reuseId = @"LNPhotoBrowserCollectionViewCellReuseId";
 
 @implementation LNImageBrowserView
 
+@synthesize currentIndex = _currentIndex;
+
+- (instancetype)initWithFrame:(CGRect)frame andFirstIndex:(NSInteger)index {
+    if (self = [super initWithFrame:frame]) {
+        self.currentIndex = index;
+        [self addViews];
+    }
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        self.currentIndex = 0;
         [self addViews];
     }
     return self;
@@ -44,6 +55,9 @@ static NSString *reuseId = @"LNPhotoBrowserCollectionViewCellReuseId";
     CGFloat collectionW = CGRectGetWidth(self.bounds) + kItemLeftMargin * 2;
     CGFloat collectionH = CGRectGetHeight(self.bounds);
     self.collectionView.frame = CGRectMake(collectionX, collectionY, collectionW, collectionH);
+    
+    // 布局完成后,设置偏移量为第一次设定的页码
+    [self.collectionView setContentOffset:CGPointMake(self.currentIndex * collectionW, 0)];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -82,13 +96,14 @@ static NSString *reuseId = @"LNPhotoBrowserCollectionViewCellReuseId";
     CGFloat pageWidth = CGRectGetWidth(scrollView.bounds);
     NSInteger pageNum = contentOffset.x / pageWidth;
     NSLog(@"%ld",(long)pageNum);
+    self.currentIndex = pageNum;
 }
 
 #pragma mark - LNPhotoBrowserCollectionViewCellDelegate
 
-- (void)tapTheImageVeiw:(UIImageView *)imageView {
-    if ([self.delegate respondsToSelector:@selector(singleTapAtBrowserView:andImageView:)]) {
-        [self.delegate singleTapAtBrowserView:self andImageView:imageView];
+- (void)tapTheImageVeiw:(UIImageView *)imageView inScrollView:(UIScrollView *)scrollView {
+    if ([self.delegate respondsToSelector:@selector(singleTapAtBrowserView:andImageView:andScrollView:)]) {
+        [self.delegate singleTapAtBrowserView:self andImageView:imageView andScrollView:scrollView];
     }
 }
 
@@ -117,6 +132,14 @@ static NSString *reuseId = @"LNPhotoBrowserCollectionViewCellReuseId";
         _layout.minimumLineSpacing = kItemLeftMargin * 2;
     }
     return _layout;
+}
+
+- (void)setCurrentIndex:(NSInteger)currentIndex {
+    _currentIndex = currentIndex;
+}
+
+- (NSInteger)currentIndex {
+    return _currentIndex;
 }
 
 - (void)dealloc {

@@ -7,7 +7,7 @@
 
 @protocol LNPhotoBrowserCollectionViewCellDelegate <NSObject>
 
-- (void)tapTheImageVeiw:(UIImageView *)imageView;
+- (void)tapTheImageVeiw:(UIImageView *)imageView inScrollView:(UIScrollView *)scrollView;
 
 @end
 

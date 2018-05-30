@@ -18,7 +18,9 @@
  @param browserView 代理调用方
  @param imageView 单击视图
  */
-- (void)singleTapAtBrowserView:(LNImageBrowserView *)browserView andImageView:(UIImageView *)imageView;
+- (void)singleTapAtBrowserView:(LNImageBrowserView *)browserView
+                  andImageView:(UIImageView *)imageView
+                 andScrollView:(UIScrollView *)scrollView;
 
 /**
  数据源个数
@@ -49,5 +51,9 @@
 @interface LNImageBrowserView : UIView
 
 @property(nonatomic, strong) id <LNImageBrowserViewDelegate> delegate;
+
+@property(nonatomic, assign, readonly) NSInteger currentIndex;
+
+- (instancetype)initWithFrame:(CGRect)frame andFirstIndex:(NSInteger)index;
 
 @end
