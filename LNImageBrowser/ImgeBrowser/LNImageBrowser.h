@@ -24,6 +24,12 @@
 
 - (UIImage *)placeholdImageAtInex:(NSInteger)index;
 
+/**
+ 高清图地址
+
+ @param index 下标
+ @return 地址
+ */
 - (NSURL *)highDefinitionImageUrlAtInex:(NSInteger)index;
 
 @end

@@ -12,6 +12,7 @@
 		4C1CC2E71FB2E6B000A2455E /* LNProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CC2E61FB2E6B000A2455E /* LNProgressViewController.m */; };
 		4C55596120B8047C004AD85A /* LNImageBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C55596020B8047C004AD85A /* LNImageBrowserView.m */; };
 		4C7674CD1FC3C4EA002A7A39 /* LNGCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7674CC1FC3C4EA002A7A39 /* LNGCDTimer.m */; };
+		4C8114EE20C28C0C007E3F35 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C8114ED20C28C0C007E3F35 /* Launch Screen.storyboard */; };
 		4C8CEAD71FCD4C0D00E39423 /* Kiss.GIF in Resources */ = {isa = PBXBuildFile; fileRef = 4C8CEAD61FCD4C0D00E39423 /* Kiss.GIF */; };
 		4C94ECEE1FA81A6200FBD168 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ECED1FA81A6200FBD168 /* AppDelegate.m */; };
 		4C94ECF11FA81A6200FBD168 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ECF01FA81A6200FBD168 /* ViewController.m */; };
@@ -23,14 +24,6 @@
 		4C94ED1D1FA8255900FBD168 /* NavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ED1B1FA8253B00FBD168 /* NavigationBarController.m */; };
 		4C94ED3D1FA825D900FBD168 /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ED2F1FA8259300FBD168 /* RACViewController.m */; };
 		4C94ED3E1FA827A000FBD168 /* NavigatonBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C94ED161FA8251300FBD168 /* NavigatonBarView.m */; };
-		4CCD02221FA84C2E00A95C2A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD021A1FA84C2200A95C2A /* 1.jpg */; };
-		4CCD02231FA84C2E00A95C2A /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD021B1FA84C2200A95C2A /* 2.jpg */; };
-		4CCD02241FA84C2E00A95C2A /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD021C1FA84C2200A95C2A /* 3.jpg */; };
-		4CCD02251FA84C2E00A95C2A /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD021D1FA84C2200A95C2A /* 4.jpg */; };
-		4CCD02261FA84C2E00A95C2A /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD021E1FA84C2200A95C2A /* 5.jpg */; };
-		4CCD02271FA84C2E00A95C2A /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD021F1FA84C2200A95C2A /* 6.jpg */; };
-		4CCD02281FA84C2E00A95C2A /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD02201FA84C2200A95C2A /* 7.jpg */; };
-		4CCD02291FA84C2E00A95C2A /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD02211FA84C2200A95C2A /* 8.jpg */; };
 		4CCD022D1FA84DD600A95C2A /* LNImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD022C1FA84DD600A95C2A /* LNImageCollectionViewCell.m */; };
 		4CCD02341FA8560E00A95C2A /* LNImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD02331FA8560E00A95C2A /* LNImageBrowser.m */; };
 		85AC3EE91C2CD9DE24019856 /* libPods-LNImageBrowserUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC6F758A118DAFED640F485 /* libPods-LNImageBrowserUITests.a */; };
@@ -57,6 +50,7 @@
 		4C55596020B8047C004AD85A /* LNImageBrowserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNImageBrowserView.m; sourceTree = "<group>"; };
 		4C7674CB1FC3C4EA002A7A39 /* LNGCDTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNGCDTimer.h; sourceTree = "<group>"; };
 		4C7674CC1FC3C4EA002A7A39 /* LNGCDTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNGCDTimer.m; sourceTree = "<group>"; };
+		4C8114ED20C28C0C007E3F35 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4C8CEAD61FCD4C0D00E39423 /* Kiss.GIF */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Kiss.GIF; sourceTree = "<group>"; };
 		4C94ECE91FA81A6200FBD168 /* LNImageBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNImageBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C94ECEC1FA81A6200FBD168 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,14 +74,6 @@
 		4C94ED2E1FA8259300FBD168 /* RACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewController.h; sourceTree = "<group>"; };
 		4C94ED2F1FA8259300FBD168 /* RACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewController.m; sourceTree = "<group>"; };
 		4C94ED3F1FA82CA600FBD168 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		4CCD021A1FA84C2200A95C2A /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		4CCD021B1FA84C2200A95C2A /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
-		4CCD021C1FA84C2200A95C2A /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		4CCD021D1FA84C2200A95C2A /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
-		4CCD021E1FA84C2200A95C2A /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
-		4CCD021F1FA84C2200A95C2A /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
-		4CCD02201FA84C2200A95C2A /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
-		4CCD02211FA84C2200A95C2A /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
 		4CCD022A1FA84D8E00A95C2A /* LNColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNColor.h; sourceTree = "<group>"; };
 		4CCD022B1FA84DD600A95C2A /* LNImageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNImageCollectionViewCell.h; sourceTree = "<group>"; };
 		4CCD022C1FA84DD600A95C2A /* LNImageCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNImageCollectionViewCell.m; sourceTree = "<group>"; };
@@ -175,7 +161,6 @@
 				4C94ECEF1FA81A6200FBD168 /* ViewController.h */,
 				4C94ECF01FA81A6200FBD168 /* ViewController.m */,
 				4C1CC2E41FB2E67F00A2455E /* ProgressView */,
-				4CCD02191FA84C2200A95C2A /* 图片 */,
 				4C94ED1E1FA8259200FBD168 /* BaseWithRAC */,
 				4C94ED171FA8253B00FBD168 /* ViewController */,
 				4C94ED141FA8251300FBD168 /* NavigatonBarView */,
@@ -186,6 +171,7 @@
 				4C94ED3F1FA82CA600FBD168 /* PrefixHeader.pch */,
 				4CCD022A1FA84D8E00A95C2A /* LNColor.h */,
 				4C94ECFB1FA81A6200FBD168 /* main.m */,
+				4C8114ED20C28C0C007E3F35 /* Launch Screen.storyboard */,
 			);
 			path = LNImageBrowser;
 			sourceTree = "<group>";
@@ -245,21 +231,6 @@
 				4C94ED2F1FA8259300FBD168 /* RACViewController.m */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		4CCD02191FA84C2200A95C2A /* 图片 */ = {
-			isa = PBXGroup;
-			children = (
-				4CCD021A1FA84C2200A95C2A /* 1.jpg */,
-				4CCD021B1FA84C2200A95C2A /* 2.jpg */,
-				4CCD021C1FA84C2200A95C2A /* 3.jpg */,
-				4CCD021D1FA84C2200A95C2A /* 4.jpg */,
-				4CCD021E1FA84C2200A95C2A /* 5.jpg */,
-				4CCD021F1FA84C2200A95C2A /* 6.jpg */,
-				4CCD02201FA84C2200A95C2A /* 7.jpg */,
-				4CCD02211FA84C2200A95C2A /* 8.jpg */,
-			);
-			path = "图片";
 			sourceTree = "<group>";
 		};
 		4CCD022E1FA8559000A95C2A /* ImgeBrowser */ = {
@@ -384,15 +355,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CCD02291FA84C2E00A95C2A /* 8.jpg in Resources */,
 				4C94ECF61FA81A6200FBD168 /* Assets.xcassets in Resources */,
-				4CCD02251FA84C2E00A95C2A /* 4.jpg in Resources */,
-				4CCD02261FA84C2E00A95C2A /* 5.jpg in Resources */,
-				4CCD02271FA84C2E00A95C2A /* 6.jpg in Resources */,
-				4CCD02221FA84C2E00A95C2A /* 1.jpg in Resources */,
-				4CCD02281FA84C2E00A95C2A /* 7.jpg in Resources */,
-				4CCD02241FA84C2E00A95C2A /* 3.jpg in Resources */,
-				4CCD02231FA84C2E00A95C2A /* 2.jpg in Resources */,
+				4C8114EE20C28C0C007E3F35 /* Launch Screen.storyboard in Resources */,
 				4C8CEAD71FCD4C0D00E39423 /* Kiss.GIF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

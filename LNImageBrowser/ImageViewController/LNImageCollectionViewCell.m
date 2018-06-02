@@ -24,6 +24,7 @@
 }
 
 - (void)addViews {
+    self.backgroundView.backgroundColor = [UIColor lightGrayColor];
     [self.contentView addSubview:self.imageView];
 }
 
@@ -36,7 +37,7 @@
 - (UIImageView *)imageView {
     if (!_imageView) {
         _imageView = [UIImageView new];
-        _imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
         _imageView.clipsToBounds = YES;
     }
     return _imageView;

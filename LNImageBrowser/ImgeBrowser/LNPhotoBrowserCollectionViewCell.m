@@ -6,7 +6,7 @@
 #import "LNPhotoBrowserCollectionViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-#define kMinZoomScale 1.f
+#define kMinZoomScale 1.0f
 #define kMaxZoomScale 2.0f
 
 @interface LNPhotoBrowserCollectionViewCell () <UIScrollViewDelegate>
@@ -46,23 +46,29 @@
 - (void)reloadWithPlaceholdImage:(UIImage *)placehold andImageUrl:(NSURL *)url {
     [self adjustFrameWithImage:placehold];
     self.imageView.image = placehold;
-    [self.activity startAnimating];
-
     if (!url) {
-        [self.activity stopAnimating];
         return;
     }
-    [[SDWebImageManager sharedManager] loadImageWithURL:url
-                                                options:SDWebImageRetryFailed
-                                               progress:nil
-                                              completed:^(UIImage *_Nullable image, NSData *_Nullable data, NSError *_Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL *_Nullable imageURL) {
-                                                  [self.activity stopAnimating];
-                                                  [self.imageView setImage:image];
-                                                  [self adjustFrameWithImage:image];
-                                              }];
+    
+    [self.activity startAnimating];
+    [self.imageView sd_setImageWithURL:url
+                      placeholderImage:placehold
+                               options:SDWebImageRetryFailed
+                              progress:nil
+                             completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+                                 [self.activity stopAnimating];
+                                 if (image && !error) {
+                                     [self adjustFrameWithImage:image];
+                                 } else {
+                                     self.imageView.frame = self.scrollView.bounds;
+                                 }
+                             }];
 }
 
 - (void)adjustFrameWithImage:(UIImage *)image {
+    if (!image) {
+        return;
+    }
     [self.scrollView setZoomScale:1.f];
     CGRect scrollFrame = self.scrollView.frame;
     if (image) {
@@ -190,7 +196,6 @@
     if (!_imageView) {
         _imageView = [UIImageView new];
         _imageView.userInteractionEnabled = YES;
-//        _imageView.backgroundColor = [UIColor clearColor];
         [_imageView addGestureRecognizer:self.singleTap];
         [_imageView addGestureRecognizer:self.doubleTap];
     }

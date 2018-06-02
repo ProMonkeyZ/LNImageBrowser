@@ -9,6 +9,8 @@
 #import "ImagesViewController.h"
 #import "LNImageCollectionViewCell.h"
 
+#import <SDWebImage/UIImageView+WebCache.h>
+
 #import "LNImageBrowser.h"
 
 static NSString *cellId = @"LNImageCollectionViewCell";
@@ -35,6 +37,15 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.collectionView.userInteractionEnabled = NO;
+    
+    [[SDImageCache sharedImageCache] clearMemory];
+    __weak typeof(self) wself = self;
+    [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+        __strong typeof(wself) strongSelf = wself;
+        strongSelf.collectionView.userInteractionEnabled = YES;
+    }];
     
     [self createImageData];
     
@@ -87,25 +98,20 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LNImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     cell.backgroundColor = kWhiteColor;
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[self.dataSource objectAtIndex:indexPath.item]]];
+//    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[self.dataSource objectAtIndex:indexPath.item]]];
 //    cell.imageView.image = [self.imagesArray objectAtIndex:indexPath.item];
+    [cell.imageView sd_setImageWithURL:[self.dataSource objectAtIndex:indexPath.item]];
     
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     LNImageCollectionViewCell *cell = (LNImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
     UIWindow* window = [UIApplication sharedApplication].keyWindow;
     self.currentRect = [cell convertRect:cell.imageView.frame toView:window];
-//    [LNImageBrowser showBrowserFromRect:rectInWindow andImage:cell.imageView.image];
-
-//    LNPhotoBrowserViewController *vc = [LNPhotoBrowserViewController new];
-//    vc.delegate = self;
-//    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
     [LNImageBrowser showBrowserAtIndex:indexPath.item andImage:cell.imageView.image andDelegate:self];
-
-//    [self presentViewController:vc animated:YES completion:nil];
 }
 
 /**
@@ -152,18 +158,36 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 }
 
 - (UIImage *)placeholdImageAtInex:(NSInteger)index {
-    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[self.dataSource objectAtIndex:index]]];
-    return image;
+    LNImageCollectionViewCell *cell = (LNImageCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+    return cell.imageView.image;
 }
 
 - (NSURL *)highDefinitionImageUrlAtInex:(NSInteger)index {
-    return nil;
+    return [NSURL URLWithString:[self.dataSource[index] stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"]];
 }
 
 #pragma mark - getter
 - (NSArray *)dataSource {
     if (!_dataSource) {
-        _dataSource = [NSArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8", nil];
+        _dataSource = [NSArray arrayWithObjects:
+                       @"http://ww2.sinaimg.cn/thumbnail/9ecab84ejw1emgd5nd6eaj20c80c8q4a.jpg",
+                       @"http://ww2.sinaimg.cn/thumbnail/9ecab84ejw1emgd5nd6eaj20c80c8q4a.jpg",
+                       @"http://ww4.sinaimg.cn/thumbnail/9e9cb0c9jw1ep7nlyu8waj20c80kptae.jpg",
+                       @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr1xydcj20gy0o9q6s.jpg",
+                       @"http://ww2.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr2n1jjj20gy0o9tcc.jpg",
+                       @"http://ww4.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr4nndfj20gy0o9q6i.jpg",
+                       @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr57tn9j20gy0obn0f.jpg",
+                       @"http://ww2.sinaimg.cn/thumbnail/677febf5gw1erma104rhyj20k03dz16y.jpg",
+                       @"http://ww4.sinaimg.cn/thumbnail/677febf5gw1erma1g5xd0j20k0esa7wj.jpg",
+                       @"http://ww2.sinaimg.cn/thumbnail/9ecab84ejw1emgd5nd6eaj20c80c8q4a.jpg",
+                       @"http://ww2.sinaimg.cn/thumbnail/9ecab84ejw1emgd5nd6eaj20c80c8q4a.jpg",
+                       @"http://ww4.sinaimg.cn/thumbnail/9e9cb0c9jw1ep7nlyu8waj20c80kptae.jpg",
+                       @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr1xydcj20gy0o9q6s.jpg",
+                       @"http://ww2.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr2n1jjj20gy0o9tcc.jpg",
+                       @"http://ww4.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr4nndfj20gy0o9q6i.jpg",
+                       @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr57tn9j20gy0obn0f.jpg",
+                       @"http://ww2.sinaimg.cn/thumbnail/677febf5gw1erma104rhyj20k03dz16y.jpg",
+                       @"http://ww4.sinaimg.cn/thumbnail/677febf5gw1erma1g5xd0j20k0esa7wj.jpg", nil];
     }
     return _dataSource;
 }

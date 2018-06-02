@@ -13,6 +13,8 @@
 #define SCREEN_WIDTH                ([UIScreen mainScreen].bounds.size.width)
 
 static CGFloat kItemLeftMargin = 4;
+static CGFloat kFontSize = 17.f;
+static CGFloat kTextInsetsMargin = 10.f;
 
 static NSString *reuseId = @"LNPhotoBrowserCollectionViewCellReuseId";
 
@@ -20,6 +22,7 @@ static NSString *reuseId = @"LNPhotoBrowserCollectionViewCellReuseId";
 
 @property(nonatomic, strong) UICollectionView *collectionView;
 @property(nonatomic, strong) UICollectionViewFlowLayout *layout;
+@property(nonatomic, strong) UILabel *indexLabel;
 
 @end
 
@@ -45,10 +48,12 @@ static NSString *reuseId = @"LNPhotoBrowserCollectionViewCellReuseId";
 
 - (void)addViews {
     [self addSubview:self.collectionView];
+    [self addSubview:self.indexLabel];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    [self initData];
     
     CGFloat collectionX = -kItemLeftMargin;
     CGFloat collectionY = 0.f;
@@ -56,8 +61,26 @@ static NSString *reuseId = @"LNPhotoBrowserCollectionViewCellReuseId";
     CGFloat collectionH = CGRectGetHeight(self.bounds);
     self.collectionView.frame = CGRectMake(collectionX, collectionY, collectionW, collectionH);
     
+    NSDictionary *dic = @{NSFontAttributeName : [UIFont systemFontOfSize:kFontSize]};
+    CGRect textRcet = [self.indexLabel.text boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.bounds) - 30, 44) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
+    CGFloat textX = (CGRectGetWidth(self.bounds) - CGRectGetWidth(textRcet) - kTextInsetsMargin * 2) * .5;
+    CGFloat textY = 20;
+    self.indexLabel.frame = CGRectMake(textX, textY, CGRectGetWidth(textRcet) + kTextInsetsMargin * 2, CGRectGetHeight(textRcet));
+    
     // 布局完成后,设置偏移量为第一次设定的页码
     [self.collectionView setContentOffset:CGPointMake(self.currentIndex * collectionW, 0)];
+}
+
+- (void)initData {
+    NSInteger count = 0;
+    if ([self.delegate respondsToSelector:@selector(numberOfItemsInBrowserView:)]) {
+        count = [self.delegate numberOfItemsInBrowserView:self];
+    }
+    if (count > 1) {
+        self.indexLabel.text = [NSString stringWithFormat:@"%ld/%ld",self.currentIndex+1,count];
+    } else {
+        self.indexLabel.hidden = YES;
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -85,9 +108,7 @@ static NSString *reuseId = @"LNPhotoBrowserCollectionViewCellReuseId";
 
 #pragma mark - UICollectionViewDelegate
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {}
 
 #pragma mark - UIScrollViewDelegate
 
@@ -95,8 +116,12 @@ static NSString *reuseId = @"LNPhotoBrowserCollectionViewCellReuseId";
     CGPoint contentOffset = [scrollView contentOffset];
     CGFloat pageWidth = CGRectGetWidth(scrollView.bounds);
     NSInteger pageNum = contentOffset.x / pageWidth;
-    NSLog(@"%ld",(long)pageNum);
     self.currentIndex = pageNum;
+    NSInteger count = 0;
+    if ([self.delegate respondsToSelector:@selector(numberOfItemsInBrowserView:)]) {
+        count = [self.delegate numberOfItemsInBrowserView:self];
+    }
+    self.indexLabel.text = [NSString stringWithFormat:@"%ld/%ld",self.currentIndex+1,count];
 }
 
 #pragma mark - LNPhotoBrowserCollectionViewCellDelegate
@@ -132,6 +157,19 @@ static NSString *reuseId = @"LNPhotoBrowserCollectionViewCellReuseId";
         _layout.minimumLineSpacing = kItemLeftMargin * 2;
     }
     return _layout;
+}
+
+- (UILabel *)indexLabel {
+    if (!_indexLabel) {
+        _indexLabel = [UILabel new];
+        _indexLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.5];
+        _indexLabel.layer.cornerRadius = 2;
+        _indexLabel.textColor = [UIColor whiteColor];
+        _indexLabel.textAlignment = NSTextAlignmentCenter;
+        _indexLabel.font = [UIFont systemFontOfSize:kFontSize];
+        _indexLabel.numberOfLines = 1;
+    }
+    return _indexLabel;
 }
 
 - (void)setCurrentIndex:(NSInteger)currentIndex {

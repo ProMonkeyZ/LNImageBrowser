@@ -13,14 +13,13 @@ static NSTimeInterval kAnimationDuration = .28;
 
 @interface LNImageBrowser () <LNImageBrowserViewDelegate>
 
-@property(nonatomic, weak) id <LNImageBrowserDelegate> delegate;
-@property(nonatomic, strong) UIView *backgroundView;
-@property(nonatomic, strong) LNImageBrowserView *browserView;
-// 用来做动画的图片视图
-@property(nonatomic, strong) UIImageView *panelImageView;
-@property(nonatomic, strong) UIImage *currentImage;
-@property(nonatomic, assign) NSInteger firstIndex;
-@property(nonatomic, assign) UIWindowLevel oldLevel;
+@property(nonatomic, weak) id <LNImageBrowserDelegate> delegate;    // 代理
+@property(nonatomic, strong) LNImageBrowserView *browserView;       // 图片浏览器
+@property(nonatomic, strong) UIView *backgroundView;                // 背景view
+@property(nonatomic, strong) UIImageView *panelImageView;           // 用来做动画的图片视图
+@property(nonatomic, strong) UIImage *firstImage;                   // 第一页的图片
+@property(nonatomic, assign) NSInteger firstIndex;                  // 第一页的页码
+@property(nonatomic, assign) UIWindowLevel oldLevel;                // 记录Window的等级
 
 @end
 
@@ -35,7 +34,7 @@ static NSTimeInterval kAnimationDuration = .28;
 - (instancetype)initWithCurrentIndex:(NSInteger)index andCurrentImage:(UIImage *)image {
     if (self = [super init]) {
         self.firstIndex = index;
-        self.currentImage = image;
+        self.firstImage = image;
         self.oldLevel = [[UIApplication sharedApplication] keyWindow].windowLevel;
         [self addViews];
     }
@@ -58,21 +57,21 @@ static NSTimeInterval kAnimationDuration = .28;
         panelImageViewFrame = [self.delegate oldRectForItemAtIndex:self.firstIndex];
     }
     self.panelImageView.frame = panelImageViewFrame;
-    self.panelImageView.image = self.currentImage;
-
-    CGSize imageSize = self.currentImage.size;//获得图片的size
+    self.panelImageView.image = self.firstImage;
+    
+    CGSize imageSize = self.firstImage.size;//获得图片的size
     CGRect imageFrame = CGRectMake(0, 0, imageSize.width, imageSize.height);
-
-    // 图片宽度大于相框宽度,等比例缩放图片,使宽度填充.
-    if (imageSize.width > window.bounds.size.width) {
+    if (self.firstImage) {
+        // 图片宽度大于相框宽度,等比例缩放图片,使宽度填充.
         CGFloat ratio = window.bounds.size.width / imageFrame.size.width;
         imageFrame.size.height = imageFrame.size.height * ratio;
         imageFrame.size.width = window.bounds.size.width;
+        // ImageView的高度小于屏幕高度时让图片在浏览器中心显示
+        if (imageFrame.size.height < window.bounds.size.height) {
+            imageFrame.origin.y = (window.bounds.size.height - imageFrame.size.height) * .5f;
+        }
     }
-    // ImageView的高度小于屏幕高度时让图片在浏览器中心显示
-    if (imageFrame.size.height < window.bounds.size.height) {
-        imageFrame.origin.y = (window.bounds.size.height - imageFrame.size.height) * .5f;
-    }
+    
     [UIView animateWithDuration:kAnimationDuration delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
@@ -86,7 +85,6 @@ static NSTimeInterval kAnimationDuration = .28;
 }
 
 - (void)hideWithImageView:(UIImageView *)imageView inScrollView:(UIScrollView *)scrollView {
-    __block UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     CGRect panelImageViewFrame = imageView.frame;
     if (scrollView.contentOffset.x > 0) {
         panelImageViewFrame.origin.x = -scrollView.contentOffset.x;
@@ -108,12 +106,17 @@ static NSTimeInterval kAnimationDuration = .28;
         self.backgroundView.alpha = 0;
         self.panelImageView.frame = panelImageViewFrame;
     } completion:^(BOOL finished) {
-        [self.panelImageView removeFromSuperview];
-        [self.backgroundView removeFromSuperview];
-        [self.browserView removeFromSuperview];
-        self.browserView = nil;
-        window.windowLevel = self.oldLevel;
+        [self removeAllViews];
     }];
+}
+
+- (void)removeAllViews {
+    [self.panelImageView removeFromSuperview];
+    [self.backgroundView removeFromSuperview];
+    [self.browserView removeFromSuperview];
+    self.browserView = nil;
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    window.windowLevel = self.oldLevel;
 }
 
 #pragma mrak - LNImageBrowserViewDelegate
