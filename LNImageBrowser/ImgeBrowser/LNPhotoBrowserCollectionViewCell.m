@@ -57,18 +57,14 @@
     }
     
     [self.activity startAnimating];
-    [self.imageView sd_setImageWithURL:url
-                      placeholderImage:[placehold isKindOfClass:[UIImage class]] ? placehold : [UIImage imageNamed:@"trends_list_default"]
-                               options:SDWebImageRetryFailed
-                              progress:nil
-                             completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-                                 [self.activity stopAnimating];
-                                 if (image && !error) {
-                                     [self adjustFrameWithImage:image];
-                                 } else {
-                                     self.imageView.frame = self.scrollView.bounds;
-                                 }
-                             }];
+    [[SDWebImageManager sharedManager] loadImageWithURL:url options:SDWebImageRetryFailed progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+        [self.activity stopAnimating];
+        if (image && !error) {
+            [self adjustFrameWithImage:image];
+        } else {
+            self.imageView.frame = self.scrollView.bounds;
+        }
+    }];
 }
 
 - (void)adjustFrameWithImage:(UIImage *)image {
