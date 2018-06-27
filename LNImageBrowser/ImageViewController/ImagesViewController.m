@@ -154,6 +154,10 @@ static NSString *cellId = @"LNImageCollectionViewCell";
     LNImageCollectionViewCell *cell = (LNImageCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
     CGRect rect = [cell.imageView convertRect:cell.imageView.bounds toView:window];
+    if (!cell) {
+        rect.origin.x = window.frame.size.width * .5f;
+        rect.origin.y = window.frame.size.height * .5f;
+    }
     return rect;
 }
 

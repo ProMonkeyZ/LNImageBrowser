@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E1B73936D53F79E1B1762C7E9936FD43'
-               BlueprintName = 'Pods-LNImageBrowser'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-LNImageBrowser.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C6628EDBFADD8FCE732FEB9D47C8B95A"
+               BlueprintName = "Pods-LNImageBrowser"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libPods-LNImageBrowser.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

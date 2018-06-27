@@ -36,7 +36,7 @@
  @param index 位置
  @return 图片实例
  */
-- (UIImage *)placeholdImageAtInex:(NSInteger)index;
+- (id)placeholdImageAtInex:(NSInteger)index;
 
 /**
  高清图地址

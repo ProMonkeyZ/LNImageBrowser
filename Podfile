@@ -9,6 +9,7 @@ target 'LNImageBrowser' do
 
   pod 'Masonry'
   pod 'SDWebImage'
+  pod 'FDFullscreenPopGesture'
 
   target 'LNImageBrowserUITests' do
     inherit! :search_paths

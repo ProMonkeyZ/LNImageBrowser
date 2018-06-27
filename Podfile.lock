@@ -1,17 +1,26 @@
 PODS:
+  - FDFullscreenPopGesture (1.1)
   - Masonry (1.1.0)
-  - SDWebImage (4.2.1):
-    - SDWebImage/Core (= 4.2.1)
-  - SDWebImage/Core (4.2.1)
+  - SDWebImage (4.4.1):
+    - SDWebImage/Core (= 4.4.1)
+  - SDWebImage/Core (4.4.1)
 
 DEPENDENCIES:
+  - FDFullscreenPopGesture
   - Masonry
   - SDWebImage
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - FDFullscreenPopGesture
+    - Masonry
+    - SDWebImage
+
 SPEC CHECKSUMS:
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  SDWebImage: 1fa4c9edf525b744f002db89f3f5a38b3cd4c541
+  SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
 
-PODFILE CHECKSUM: 44a89292a3dd71dd86436ee19427f525f5019da6
+PODFILE CHECKSUM: 517a0192c51f94f7bf6f8c2657944f062a2753b2
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.0

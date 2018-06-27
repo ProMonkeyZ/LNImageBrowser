@@ -44,15 +44,21 @@
 }
 
 - (void)reloadWithPlaceholdImage:(UIImage *)placehold andImageUrl:(NSURL *)url {
-    [self adjustFrameWithImage:placehold];
-    self.imageView.image = placehold;
+    if ([placehold isKindOfClass:[UIImage class]]) {
+        [self adjustFrameWithImage:placehold];
+    } else if([placehold isKindOfClass:[NSString class]]) {
+        __weak typeof(self) wself = self;
+        [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:(NSString *)placehold] options:SDWebImageRetryFailed progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+            [wself adjustFrameWithImage:image];
+        }];
+    }
     if (!url) {
         return;
     }
     
     [self.activity startAnimating];
     [self.imageView sd_setImageWithURL:url
-                      placeholderImage:placehold
+                      placeholderImage:[placehold isKindOfClass:[UIImage class]] ? placehold : [UIImage imageNamed:@"trends_list_default"]
                                options:SDWebImageRetryFailed
                               progress:nil
                              completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
@@ -98,6 +104,7 @@
     }
 
     self.scrollView.contentOffset = CGPointZero;
+    self.imageView.image = image;
 }
 
 - (CGPoint)centerOfScrollViewContent:(UIScrollView *)scrollView {

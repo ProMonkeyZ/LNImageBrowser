@@ -22,7 +22,7 @@
  */
 - (CGRect)oldRectForItemAtIndex:(NSInteger)index;
 
-- (UIImage *)placeholdImageAtInex:(NSInteger)index;
+- (id)placeholdImageAtInex:(NSInteger)index;
 
 /**
  高清图地址
