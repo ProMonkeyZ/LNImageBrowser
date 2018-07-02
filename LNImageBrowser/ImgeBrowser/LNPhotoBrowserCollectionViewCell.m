@@ -5,17 +5,23 @@
 
 #import "LNPhotoBrowserCollectionViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+
+#import <Photos/Photos.h>
 
 #define kMinZoomScale 1.0f
 #define kMaxZoomScale 2.0f
 
-@interface LNPhotoBrowserCollectionViewCell () <UIScrollViewDelegate>
+@interface LNPhotoBrowserCollectionViewCell () <UIScrollViewDelegate, UIActionSheetDelegate>
 
 @property(nonatomic, strong) UIScrollView *scrollView;
 @property(nonatomic, strong) UIImageView *imageView;
 @property(nonatomic, strong) UIActivityIndicatorView *activity;
+
 @property(nonatomic, strong) UITapGestureRecognizer *singleTap;
 @property(nonatomic, strong) UITapGestureRecognizer *doubleTap;
+@property(nonatomic, strong) UITapGestureRecognizer *scrollTap;
+@property(nonatomic, strong) UILongPressGestureRecognizer *longPress;
 
 @end
 
@@ -160,6 +166,86 @@
     }
 }
 
+- (void)longPressAction:(UILongPressGestureRecognizer *)longPressGesture {
+    if (longPressGesture.state == UIGestureRecognizerStateBegan) {
+        UIImage *image = self.imageView.image;
+        if (!image) {
+            return;
+        }
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"保存图片", nil];
+        [sheet showInView:self.contentView];
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0: {
+            [self saveImage];
+        }
+            break;
+        case 1: {
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)saveImage {
+    /*
+     同步方法保存图片
+    NSError *error = nil;
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+        [PHAssetChangeRequest creationRequestForAssetFromImage:self.imageView.image];
+    } error:&error];
+    
+    if (error) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.contentView animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"图片保存成功";
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [MBProgressHUD hideHUDForView:self.contentView animated:YES];
+        });
+    } else {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.contentView animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = [NSString stringWithFormat:@"图片保存失败,原因:%@",[error.userInfo valueForKey:NSLocalizedDescriptionKey]];
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [MBProgressHUD hideHUDForView:self.contentView animated:YES];
+        });
+    }
+     */
+    
+    UIImage *image = self.imageView.image;
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (success) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.contentView animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.label.text = @"图片保存成功";
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.8 * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [MBProgressHUD hideHUDForView:self.contentView animated:YES];
+                });
+            } else {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.contentView animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.label.text = [NSString stringWithFormat:@"图片保存失败,原因:%@",[error.userInfo valueForKey:NSLocalizedDescriptionKey]];
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.8 * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [MBProgressHUD hideHUDForView:self.contentView animated:YES];
+                });
+            }
+        });
+    }];
+}
+
 - (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center {
 
     CGRect zoomRect;
@@ -191,6 +277,7 @@
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
         _scrollView.backgroundColor = [UIColor clearColor];
         _scrollView.delegate = self;
+        [_scrollView addGestureRecognizer:self.scrollTap];
     }
     return _scrollView;
 }
@@ -201,6 +288,7 @@
         _imageView.userInteractionEnabled = YES;
         [_imageView addGestureRecognizer:self.singleTap];
         [_imageView addGestureRecognizer:self.doubleTap];
+        [_imageView addGestureRecognizer:self.longPress];
     }
     return _imageView;
 }
@@ -217,6 +305,15 @@
     return _singleTap;
 }
 
+- (UITapGestureRecognizer *)scrollTap {
+    if (!_scrollTap) {
+        _scrollTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapAction:)];
+        _scrollTap.numberOfTapsRequired = 1;
+        _scrollTap.numberOfTouchesRequired = 1;
+    }
+    return _scrollTap;
+}
+
 - (UITapGestureRecognizer *)doubleTap {
     if (!_doubleTap) {
         _doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapAction:)];
@@ -224,6 +321,14 @@
         _doubleTap.numberOfTouchesRequired = 1;
     }
     return _doubleTap;
+}
+
+- (UILongPressGestureRecognizer *)longPress {
+    if (!_longPress) {
+        _longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
+        _longPress.minimumPressDuration = .25f;
+    }
+    return _longPress;
 }
 
 @end

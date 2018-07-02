@@ -98,11 +98,13 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LNImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     cell.backgroundColor = kWhiteColor;
-//    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[self.dataSource objectAtIndex:indexPath.item]]];
-//    cell.imageView.image = [self.imagesArray objectAtIndex:indexPath.item];
-    [cell.imageView sd_setImageWithURL:[self.dataSource objectAtIndex:indexPath.item]];
-    
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+//    ((LNImageCollectionViewCell *)cell).imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[self.dataSource objectAtIndex:indexPath.item]]];
+//    ((LNImageCollectionViewCell *)cell).imageView.image = [self.imagesArray objectAtIndex:indexPath.item];
+    [((LNImageCollectionViewCell *)cell).imageView sd_setImageWithURL:[self.dataSource objectAtIndex:indexPath.item]];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -142,6 +144,7 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 #pragma mark - LNPhotoBrowserViewControllerDelegate
 - (NSInteger)numberOfItemsInBrowser:(LNImageBrowser *)browser {
     return self.dataSource.count;
+//    return self.imagesArray.count;
 }
 
 /**
@@ -168,6 +171,7 @@ static NSString *cellId = @"LNImageCollectionViewCell";
 
 - (NSURL *)highDefinitionImageUrlAtInex:(NSInteger)index {
     return [NSURL URLWithString:[self.dataSource[index] stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"]];
+//    return nil;
 }
 
 #pragma mark - getter
