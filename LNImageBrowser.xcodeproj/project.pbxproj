@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040A00482240C62B00FC1B51 /* UIView+LNViewContentToImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 040A00472240C62B00FC1B51 /* UIView+LNViewContentToImage.m */; };
 		139EEAA30F19EDEC747C8159 /* libPods-LNImageBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B7E9F2EB76E53EA4164582 /* libPods-LNImageBrowser.a */; };
 		1D77C9743238751C592CAA7D /* LNPhotoBrowserCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77CF99071BB089CEF067EA /* LNPhotoBrowserCollectionViewCell.m */; };
 		4C1CC2E71FB2E6B000A2455E /* LNProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CC2E61FB2E6B000A2455E /* LNProgressViewController.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040A00462240C62B00FC1B51 /* UIView+LNViewContentToImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+LNViewContentToImage.h"; sourceTree = "<group>"; };
+		040A00472240C62B00FC1B51 /* UIView+LNViewContentToImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+LNViewContentToImage.m"; sourceTree = "<group>"; };
 		11B7E9F2EB76E53EA4164582 /* libPods-LNImageBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNImageBrowser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D77C4235655350A3DE22A27 /* LNPhotoBrowserCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNPhotoBrowserCollectionViewCell.h; sourceTree = "<group>"; };
 		1D77CF99071BB089CEF067EA /* LNPhotoBrowserCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNPhotoBrowserCollectionViewCell.m; sourceTree = "<group>"; };
@@ -105,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040A00452240C5FD00FC1B51 /* ViewToImage */ = {
+			isa = PBXGroup;
+			children = (
+				040A00462240C62B00FC1B51 /* UIView+LNViewContentToImage.h */,
+				040A00472240C62B00FC1B51 /* UIView+LNViewContentToImage.m */,
+			);
+			path = ViewToImage;
+			sourceTree = "<group>";
+		};
 		4C1CC2E41FB2E67F00A2455E /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +172,7 @@
 				4C94ECED1FA81A6200FBD168 /* AppDelegate.m */,
 				4C94ECEF1FA81A6200FBD168 /* ViewController.h */,
 				4C94ECF01FA81A6200FBD168 /* ViewController.m */,
+				040A00452240C5FD00FC1B51 /* ViewToImage */,
 				4C1CC2E41FB2E67F00A2455E /* ProgressView */,
 				4C94ED1E1FA8259200FBD168 /* BaseWithRAC */,
 				4C94ED171FA8253B00FBD168 /* ViewController */,
@@ -416,6 +429,7 @@
 				4C94ED1D1FA8255900FBD168 /* NavigationBarController.m in Sources */,
 				4C94ED1C1FA8255900FBD168 /* BaseViewController.m in Sources */,
 				4C94ED3D1FA825D900FBD168 /* RACViewController.m in Sources */,
+				040A00482240C62B00FC1B51 /* UIView+LNViewContentToImage.m in Sources */,
 				4C94ED3E1FA827A000FBD168 /* NavigatonBarView.m in Sources */,
 				4CCD022D1FA84DD600A95C2A /* LNImageCollectionViewCell.m in Sources */,
 				4CCD02341FA8560E00A95C2A /* LNImageBrowser.m in Sources */,
@@ -558,7 +572,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QQQKQQXNQ;
-				GCC_PREFIX_HEADER = "/Users/zln/张立宁项目/LNImageBrowser/LNImageBrowser/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = /Users/mac/zln/githubProjects/LNImageBrowser/LNImageBrowser/PrefixHeader.pch;
 				INFOPLIST_FILE = LNImageBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -577,7 +591,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QQQKQQXNQ;
-				GCC_PREFIX_HEADER = "/Users/zln/张立宁项目/LNImageBrowser/LNImageBrowser/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = /Users/mac/zln/githubProjects/LNImageBrowser/LNImageBrowser/PrefixHeader.pch;
 				INFOPLIST_FILE = LNImageBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

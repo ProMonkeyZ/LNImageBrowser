@@ -13,7 +13,7 @@ DEPENDENCIES:
   - SDWebImage
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - FDFullscreenPopGesture
     - Masonry
     - MBProgressHUD
@@ -27,4 +27,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: ae123f8d18d70519cee1513fecc48da728fb2fdc
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.6.0

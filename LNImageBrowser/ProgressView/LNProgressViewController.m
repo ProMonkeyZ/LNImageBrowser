@@ -7,6 +7,8 @@
 //
 
 #import "LNProgressViewController.h"
+#import "LNGCDTimer.h"
+#import "ImagesViewController.h"
 
 @interface LNProgressViewController ()
 
@@ -22,14 +24,16 @@
     
     NSTimer *timer;
     
+    LNGCDTimer *_lnTimer;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self testTextViewMasonry];
+//    [self testTextViewMasonry];
     
-//    [self initUI];
+    [self initUI];
 }
 
 - (void)testTextViewMasonry {
@@ -64,9 +68,27 @@
     [label makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(0);
     }];
+    
+    _lnTimer = [[LNGCDTimer alloc] init];
+    __block NSInteger i = 0;
+    [_lnTimer dispatchTimerWithTarget:self interval:.5 handler:^(dispatch_source_t timer) {
+        i ++;
+        label.text = [NSString stringWithFormat:@"%zd",i];
+    }];
 }
 
 - (void)initUI {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.backgroundColor = [UIColor redColor];
+    [button addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    [button makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.navigationBarView.bottom).offset(40);
+        make.centerX.equalTo(0);
+        make.width.equalTo(200);
+        make.height.equalTo(120);
+    }];
+    
     UIProgressView *progressView = [UIProgressView new];
     [self.view addSubview:progressView];
     [progressView makeConstraints:^(MASConstraintMaker *make) {
@@ -103,6 +125,11 @@
         [proView setProgress:proValue animated:YES];//重置进度条
     }
     
+}
+
+- (void)buttonClickAction:(UIButton *)sender {
+    ImagesViewController *vc = [ImagesViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)dealloc {
